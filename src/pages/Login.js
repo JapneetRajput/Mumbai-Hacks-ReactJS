@@ -6,11 +6,18 @@ import Loader from "../components/Loader";
 import { loginUser } from "../api/service";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/UserContext";
+/*
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
+*/
 
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
+  const [invalidflag, setInvalidFlag] = useState(false);
   const navigate = useNavigate();
   const { setUserAuth } = React.useContext(AuthContext);
   const auth = localStorage.getItem("token");
@@ -31,7 +38,7 @@ const Login = () => {
         .then((req, res) => {
           const { status, message } = req.data;
           if (status === "failed") {
-            alert(message);
+            setInvalidFlag(true);
           } else {
             localStorage.setItem("token", req.data.token);
             setUserAuth(true);
@@ -66,6 +73,12 @@ const Login = () => {
           Mumbai
         </h1>
       </div>
+      {invalidflag &&
+        <div class="alert alert-danger" role="alert">
+        Invalid Login Credentials
+        </div>
+      }
+      
       <form
         onSubmit={login}
         className="p-6 bg-white flex flex-col items-start border mt-16 md:mt-12 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl"
