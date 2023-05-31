@@ -28,7 +28,7 @@ const Navbar = () => {
             {/* <Link href='/' className='invisible ml-10 text-md font-bold uppercase'>
                         Home
                     </Link> */}
-            <a href="/home">
+            <a href="/">
               <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
                 Home
               </li>
@@ -87,7 +87,7 @@ const Navbar = () => {
           </div>
           <div>
             <ul className="uppercase font-bold">
-              <a href="/home">
+              <a href="/">
                 <li className="py-4 text-md cursor-pointer">Home</li>
               </a>
               <a href="/">
