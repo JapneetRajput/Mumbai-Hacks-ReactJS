@@ -69,8 +69,8 @@ const Login = () => {
       )}
       <div className="flex mt-16 md:mt-12">
         {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
-        <h1 className=" text-[#2E0052] text-3xl ml-1 flex flex-row items-center font-semibold">
-          Mumbai
+        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
+          MUMBAI
         </h1>
       </div>
       {invalidflag &&
@@ -81,7 +81,7 @@ const Login = () => {
       
       <form
         onSubmit={login}
-        className="p-6 bg-white flex flex-col items-start border mt-16 md:mt-12 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl"
+        className="p-6 bg-white flex flex-col items-start border mt-16 md:mt-12 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
       >
         <p className="text-2xl ml-2">Login</p>
         <TextBox
