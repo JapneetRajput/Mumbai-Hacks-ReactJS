@@ -15,6 +15,8 @@ import { profileUser } from "../api/service";
 import Navbar from "../components/Navbar";
 import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
+import Footer from "../components/Footer";
+
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
 import { FaLocationArrow, FaEdit } from 'react-icons/fa';
@@ -217,6 +219,7 @@ const AddPost = () => {
         </div>
         </button>
       </form>
+      <Footer/>
       </div>
     </>
   );
