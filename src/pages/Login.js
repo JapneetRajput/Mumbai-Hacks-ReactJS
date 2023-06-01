@@ -136,7 +136,7 @@ const Login = () => {
       >
         Create your Mumbai account
       </button>
-      <div className="bottom-0 bg-[#2E0052] flex flex-col items-center w-full h-10 pt-2">
+      <div className="absolute bottom-0 bg-[#2E0052] flex flex-col items-center w-full h-10 pt-2">
         <span className="text-white">Mumbai | All rights reserved</span>
       </div>
     </div>
