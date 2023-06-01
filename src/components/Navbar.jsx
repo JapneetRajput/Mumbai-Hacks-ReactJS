@@ -18,10 +18,10 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed w-full h-20  shadow-xl bg-[#ecf0f3] text-[#1f2937] tracking-wide mb-24">
+    <div className="fixed w-full h-20  shadow-xl bg-[#ecf0f3] bg-opacity-20 backdrop-filter backdrop-blur-lg text-[#1f2937] tracking-wide mb-24 z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
-        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold">
-          Memories
+        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
+          MUMBAI
         </h1>
         <div>
           <ul className="hidden md:flex ">
@@ -60,7 +60,7 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={nav ? "fixed left-0 top-0 w-full h-screen bg-black/70" : ""}
+        className={nav ? "fixed left-0 top-0 w-full h-screen bg-gray/60" : ""}
       >
         <div
           className={
@@ -71,7 +71,7 @@ const Navbar = () => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <h1 className="text-4xl font-bold">Memories</h1>
+              <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">MEMORIES</h1>
               <div
                 onClick={handleNav}
                 className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
@@ -88,19 +88,19 @@ const Navbar = () => {
           <div>
             <ul className="uppercase font-bold">
               <a href="/home">
-                <li className="py-4 text-md cursor-pointer">Home</li>
+                <li className="py-4 text-md cursor-pointer hover:border-b">Home</li>
               </a>
               <a href="/">
-                <li className="py-4 text-md cursor-pointer">About</li>
+                <li className="py-4 text-md cursor-pointer hover:border-b">About</li>
               </a>
               <a href="/">
-                <li className="py-4 text-md cursor-pointer">Skills</li>
+                <li className="py-4 text-md cursor-pointer hover:border-b">Skills</li>
               </a>
               <a href="/">
-                <li className="py-4 text-md cursor-pointer">Projects</li>
+                <li className="py-4 text-md cursor-pointer hover:border-b">Projects</li>
               </a>
               <a href="/logout">
-                <li className="py-4 text-md cursor-pointer">Logout</li>
+                <li className="py-4 text-md cursor-pointer hover:border-b">Logout</li>
               </a>
             </ul>
             <div className="pt-[40%]">

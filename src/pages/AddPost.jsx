@@ -16,6 +16,8 @@ import Navbar from "../components/Navbar";
 import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Axios from "axios";
+// import { MapPinIcon } from "@heroicons/outline";
+import { UilMapPin, UilLinkAdd } from '@iconscout/react-unicons'
 
 const markerIcon = new L.Icon({
   iconUrl: require("../assets/markerIcon.png"),
@@ -132,11 +134,12 @@ const AddPost = () => {
   return (
     <>
       <Navbar />
+      <div className="bg-gradient-to-r from-red-200 to-blue-200">
       <form
         onSubmit={handleFormSubmit}
         className="pt-20 flex flex-col items-center"
       >
-        <h1 className="text-center text-3xl font-bold py-8 ">Create a Post</h1>
+        <h1 className="text-center text-3xl font-bold py-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-900">CREATE A POST</h1>
         <TextBox
           text="text-md text-black"
           width="w-full"
@@ -169,7 +172,7 @@ const AddPost = () => {
         />
         <label className="block mb-4">
           <span className="text-gray-700 pl-11 font-bold text-lg">
-            Image :{" "}
+            Upload Image :{" "}
           </span>
           <input
             type="file"
@@ -179,13 +182,15 @@ const AddPost = () => {
         </label>
         <button
           type="button"
-          className="text-[#2E0052] border-gray-700 border bg-white hover:bg-[#2E0052] rounded-lg h-12 px-6 mb-4"
+          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-blue-500 rounded h-20 my-4  "
           onClick={addMarkerAtCurrentLocation}
-        >
-          Locate me
+        > 
+        {/* <MapPinIcon class="h-6 w-6 text-gray-500" /> */}
+        <UilMapPin size ="30" color="#ffffff" className="flex ml-6"/>
+        Locate me 
         </button>
-        <div className="w-full text-center">
-          <div className="flex flex-col items-center">
+        <div className="w-full text-center z-0">
+          <div className="flex flex-col items-center ">
             <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
               <TileLayer
                 url={mapConfig.maptiler.url}
@@ -202,12 +207,14 @@ const AddPost = () => {
           </div>
         </div>
         <button
-          className="text-[#2E0052] border-gray-700 border bg-white hover:bg-[#2E0052] rounded-lg h-12 px-6 my-4"
-          type="submit"
-        >
+          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-blue-500 rounded h-20 my-4"
+          type="submit">
+          <UilLinkAdd size ="30" color="#ffffff" className="flex ml-8"/>
           Create a Post
         </button>
+        
       </form>
+      </div>
     </>
   );
 };
