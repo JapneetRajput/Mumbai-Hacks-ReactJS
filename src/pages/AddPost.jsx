@@ -182,7 +182,7 @@ const AddPost = () => {
         </label>
         <button
           type="button"
-          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-blue-500 rounded h-20 my-4  "
+          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-gray-400 rounded h-20 my-4  "
           onClick={addMarkerAtCurrentLocation}
         > 
         {/* <MapPinIcon class="h-6 w-6 text-gray-500" /> */}
@@ -190,8 +190,8 @@ const AddPost = () => {
         Locate me 
         </button>
         <div className="w-full text-center z-0">
-          <div className="flex flex-col items-center ">
-            <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
+          <div className="flex flex-col items-center">
+            <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef} >
               <TileLayer
                 url={mapConfig.maptiler.url}
                 attribution={mapConfig.maptiler.attribution}
@@ -207,7 +207,7 @@ const AddPost = () => {
           </div>
         </div>
         <button
-          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-blue-500 rounded h-20 my-4"
+          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-gray-400 rounded h-20 my-4"
           type="submit">
           <UilLinkAdd size ="30" color="#ffffff" className="flex ml-8"/>
           Create a Post
