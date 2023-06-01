@@ -216,7 +216,6 @@ const AddPost = () => {
           <FaEdit size={25}/> &nbsp; Create a Post
         </div>
         </button>
-        
       </form>
       </div>
     </>
