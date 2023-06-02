@@ -13,6 +13,7 @@ export default function Carousel() {
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
+          "background": "#0d1117",
         }}
         speed={600}
         parallax={true}
