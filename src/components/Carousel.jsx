@@ -28,18 +28,18 @@ export default function Carousel() {
           className="parallax-bg"
           style={{
             "background-image":
-              "url(https://gcdnb.pbrd.co/images/3RdZwtkasR77.png?o=1)",
+              "url(https://gcdnb.pbrd.co/images/XcBH3e51fW5C.png?o=1)",
           }}
           data-swiper-parallax="-23%"
         ></div>
         <SwiperSlide>
-          <div className="title  text-[#1f2937]" data-swiper-parallax="-300">
+          <div className="title  text-[#c9d1d9]" data-swiper-parallax="-300">
           मुंबई
           </div>
-          <div className="subtitle text-[#1f2937]" data-swiper-parallax="-200">
+          <div className="subtitle text-[#c9d1d9]" data-swiper-parallax="-200">
             CITY OF DREAMS
           </div>
-          <div className="text bg-[#ecf0f3] bg-opacity-20 backdrop-filter backdrop-blur-lg text-[#1f2937] rounded-lg" data-swiper-parallax="-100">
+          <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
@@ -52,13 +52,13 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="title text-[#1f2937]" data-swiper-parallax="-300">
+          <div className="title text-[#c9d1d9]" data-swiper-parallax="-300">
           मुंबई
           </div>
-          <div className="subtitle text-[#1f2937]" data-swiper-parallax="-200">
+          <div className="subtitle text-[#c9d1d9]" data-swiper-parallax="-200">
             MAYANAGRI
           </div>
-          <div className="text bg-[#ecf0f3] bg-opacity-20 backdrop-filter backdrop-blur-lg text-[#1f2937] rounded-lg" data-swiper-parallax="-100">
+          <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
@@ -71,13 +71,13 @@ export default function Carousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="title text-[#1f2937]" data-swiper-parallax="-300">
+          <div className="title text-[#c9d1d9]" data-swiper-parallax="-300">
           मुंबई
           </div>
-          <div className="subtitle text-[#1f2937]" data-swiper-parallax="-200">
+          <div className="subtitle text-[#c9d1d9]" data-swiper-parallax="-200">
             CAPITAL CITY OF MAHARASHTRA
           </div>
-          <div className="text bg-[#ecf0f3] bg-opacity-20 backdrop-filter backdrop-blur-lg text-[#1f2937] rounded-lg" data-swiper-parallax="-100">
+          <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla

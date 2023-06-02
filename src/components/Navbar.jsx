@@ -18,9 +18,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed w-full h-16 shadow-xl bg-[#ecf0f3] bg-opacity-20 backdrop-filter backdrop-blur-lg text-[#1f2937] tracking-wide mb-0  z-50">
+    <div className="fixed w-full h-16 shadow-xl bg-[#161b22] text-white tracking-wide mb-0  z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
-        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
+        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-[#c9d1d9]">
           MUMBAI
         </h1>
         <div>
@@ -28,28 +28,28 @@ const Navbar = () => {
             {/* <Link href='/' className='invisible ml-10 text-md font-bold uppercase'>
                         Home
                     </Link> */}
-            <a href="/home">
-              <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
+            <a href="/home" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md cursor-pointer">
                 Home
               </li>
             </a>
-            <a href="/">
-              <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
+            <a href="/" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md cursor-pointer">
                 About
               </li>
             </a>
-            <a href="/">
-              <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
+            <a href="/" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md  cursor-pointer">
                 Skills
               </li>
             </a>
-            <a href="/">
-              <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
+            <a href="/" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md cursor-pointer">
                 Projects
               </li>
             </a>
-            <a href="/logout">
-              <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
+            <a href="/logout" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md cursor-pointer">
                 Logout
               </li>
             </a>
