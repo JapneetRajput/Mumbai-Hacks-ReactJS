@@ -12,6 +12,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 */
+const googleTranslateElementInit = () => {
+  new window.google.translate.TranslateElement(
+    {
+      pageLanguage: "en",
+      autoDisplay: false
+    },
+    "google_translate_element"
+  );
+};
 
 const Login = () => {
   const [password, setPassword] = useState("");
@@ -58,16 +67,23 @@ const Login = () => {
     } else {
       setUserAuth(false);
     }
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-[url('https://gcdnb.pbrd.co/images/3RdZwtkasR77.png?o=1')]  bg-cover" id="google_translate_element">
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
           <Loader />
         </div>
       )}
-      <div className="flex mt-16 md:mt-12">
+      <div className="flex mt-16 md:mt-12 ">
         {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
         <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
           MUMBAI
@@ -81,9 +97,9 @@ const Login = () => {
       
       <form
         onSubmit={login}
-        className="p-6 bg-white flex flex-col items-start border mt-16 md:mt-12 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
+        className="p-6 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-start border mt-16 md:mt-12 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
       >
-        <p className="text-2xl ml-2">Login</p>
+       <h2 class="text-orange-400 font-bold mb-4 text-2xl">LOGIN</h2>
         <TextBox
           text="text-md text-black"
           width="w-full"
@@ -116,7 +132,7 @@ const Login = () => {
         />
         <button
           type="submit"
-          className="w-full mb-4 text-white hover:text-[#2E0052] hover:border-[#2E0052] hover:border bg-[#2E0052] hover:bg-white rounded-lg h-12 mt-8"
+          className="w-full  text-white bg-orange-400 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-orange-700 rounded h-14  my-4"
         >
           Continue
         </button>
@@ -126,17 +142,17 @@ const Login = () => {
         </h1>
       </form>
       <div className="mt-8 text-xs md:text-sm sm:w-1/2 lg:w-1/3 flex items-center w-full md:px-1 px-9">
-        <hr className="border-t w-full border-gray-300 flex-grow" />
-        <span className=" text-gray-500 w-full">New to Mumbai?</span>
-        <hr className="border-t w-full border-gray-300 flex-grow" />
+        <hr className="border-t w-full border-white flex-grow" />
+        <span className=" text-white w-full">New to Mumbai?</span>
+        <hr className="border-t w-full border-white flex-grow" />
       </div>
       <button
         onClick={() => navigate("/register")}
-        className="w-4/5 lg:w-1/3 sm:w-1/2 mb-4 text-[#2E0052] hover:text-white border-gray-700 border bg-white hover:bg-[#2E0052] rounded-lg h-12 mt-8"
+        className=" text-white bg-orange-400 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-orange-700 rounded h-14  my-4"
       >
         Create your Mumbai account
       </button>
-      <div className=" bottom-0 bg-[#2E0052] flex flex-col items-center w-full h-10 pt-2">
+      <div className=" bottom-0  bg-orange-900 bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
         <span className="text-white">Mumbai | All rights reserved</span>
       </div>
     </div>

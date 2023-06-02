@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 
 export default function Footer(){
+    const googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            autoDisplay: false
+          },
+          "google_translate_element"
+        );
+      };
+    useEffect(() => {
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+          "src",
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        );
+        document.body.appendChild(addScript);
+        window.googleTranslateElementInit = googleTranslateElementInit;
+      }, []);
 
     return (
         <>
@@ -23,6 +42,9 @@ export default function Footer(){
                             </li>
                             <li>
                                 <a href="#" className=" text-[#1f2937] hover:border-b-4">Contact</a>
+                            </li>
+                            <li>
+                               <div  id="google_translate_element"></div> 
                             </li>
                         </ul>
                     </div>
