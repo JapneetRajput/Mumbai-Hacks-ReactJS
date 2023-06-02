@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Axios from "axios";
 import { useNavigate } from "react-router";
 import { profileUser } from "../api/service";
-
+import {FaThumbsUp, FaThumbsDown} from "react-icons/fa";
 const Posts = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -62,8 +62,16 @@ const Posts = () => {
                     Created by : {_id}
                     </p>
                   </div>
-                  <button onClick={() => navigate("/posts")} className=" shadow-none w-32 text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4" > 
-                  Upvote 
+                  <button onClick={() => navigate("/posts")} className=" shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4" > 
+                  <div style={{display: "flex", justifyContent: "center" }}>
+                    <FaThumbsUp size={25}/>
+                  </div>
+                  </button>
+
+                  <button onClick={() => navigate("/posts")} className=" shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4" > 
+                  <div style={{display: "flex", justifyContent: "center" }}>
+                    <FaThumbsDown size={25}/>
+                  </div>
                   </button>
                 </div>
               </div>
