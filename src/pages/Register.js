@@ -5,15 +5,15 @@ import Loader from "../components/Loader";
 import { registerUser } from "../api/service";
 import { useNavigate } from "react-router-dom";
 
-const googleTranslateElementInit = () => {
-  new window.google.translate.TranslateElement(
-    {
-      pageLanguage: "en",
-      autoDisplay: false
-    },
-    "google_translate_element"
-  );
-};
+// const googleTranslateElementInit = () => {
+//   new window.google.translate.TranslateElement(
+//     {
+//       pageLanguage: "en",
+//       autoDisplay: false
+//     },
+//     "google_translate_element"
+//   );
+// };
 
 const Register = () => {
   // Init states
@@ -72,18 +72,18 @@ const Register = () => {
     }
   };
 
-  useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
+  // useEffect(() => {
+  //   var addScript = document.createElement("script");
+  //   addScript.setAttribute(
+  //     "src",
+  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  //   );
+  //   document.body.appendChild(addScript);
+  //   window.googleTranslateElementInit = googleTranslateElementInit;
+  // }, []);
 
   return (
-    <div className="flex flex-col items-center bg-gray-500 bg-[url('https://gcdnb.pbrd.co/images/3RdZwtkasR77.png?o=1')] bg-cover "  id="google_translate_element">
+    <div className="flex flex-col items-center bg-[#0d1117] bg-cover "  >
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
           <Loader />
@@ -91,23 +91,23 @@ const Register = () => {
       )}
       <div className="flex mt-12 sm:mt-6">
         {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
-        <h1 className=" text-[#2E0052] text-3xl ml-1 flex flex-row items-center font-semibold">
+        <h1 className=" text-[#d7dfe7] text-3xl ml-1 flex flex-row items-center font-bold">
           Mumbai
         </h1>
       </div>
       <form
         onSubmit={register}
-        className="px-6 py-6 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-start border mt-12 sm:mt-6 border-[#D9D9D9] border-3px w-5/6 sm:w-1/3 rounded-xl"
+        className="px-6 py-6 bg-[#161b22] flex flex-col items-start drop-shadow-2xl mt-16 md:mt-12 w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
       >
-        <h2 class="text-orange-400 font-bold mb-4 text-2xl">REGISTER</h2>
+        <h2 class="text-[#c9d1d9] font-semibold mb-4 text-2xl self-center">REGISTER</h2>
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Name"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 sm:px-4"
           div="mt-8"
@@ -116,13 +116,13 @@ const Register = () => {
           value={name}
         />
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Mobile Number"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 sm:px-4"
           div="mt-6"
@@ -131,13 +131,13 @@ const Register = () => {
           value={mobileNumber}
         />
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Email ID"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 sm:px-4"
           div="mt-6"
@@ -146,13 +146,13 @@ const Register = () => {
           value={email}
         />
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Password"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 sm:px-4"
           div="mt-6"
@@ -161,13 +161,13 @@ const Register = () => {
           value={password}
         />
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Confirm Password"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 sm:px-4"
           div="mt-6"
@@ -177,25 +177,25 @@ const Register = () => {
         />
         <button
           type="submit"
-          className="w-full  text-white bg-orange-400 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-orange-700 rounded h-14  my-4"
+          className="shadow-none w-full text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10  my-4"
         >
           Continue
         </button>
-        <h1 className="text-xs text-left mx-1">
+        <h1 className=" text-[#d7dfe7] text-sm text-left mx-1">
           By continuing, you agree to Mumbai privacy notice and conditions of
           use.
         </h1>
       </form>
-      <p className="mt-4 font-semibold">
+      <p className="text-[#d7dfe7] mt-4 font-semibold">
         Already have an account?{" "}
         <span
           onClick={() => navigate("/")}
-          className="underline cursor-pointer font-normal"
+          className="underline cursor-pointer font-normal text-[#2f81e3]"
         >
           Sign in
         </span>
       </p>
-      <div className=" bottom-0  bg-orange-900 bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
+      <div className=" bottom-0  bg-gray-500 bg-opacity-20 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
         <span className="text-white">Mumbai | All rights reserved</span>
       </div>
     </div>

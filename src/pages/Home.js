@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-24">
+      <div className="pt-24 bg-[#0D1117]">
         <div className="flex flex-row ">
           {posts &&
             posts.map(({ title, description, lat, lng, image, _id }) => (
