@@ -6,7 +6,6 @@ import Loader from "../components/Loader";
 import { loginUser } from "../api/service";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/UserContext";
-import bg from "../images/cimg1.png"
 // import { MouseParallax, ScrollParallax } from "react-just-parallax";
 /*
 // Bootstrap CSS
@@ -14,15 +13,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 */
-const googleTranslateElementInit = () => {
-  new window.google.translate.TranslateElement(
-    {
-      pageLanguage: "en",
-      autoDisplay: false
-    },
-    "google_translate_element"
-  );
-};
+// const googleTranslateElementInit = () => {
+//   new window.google.translate.TranslateElement(
+//     {
+//       pageLanguage: "en",
+//       autoDisplay: false
+//     },
+//     "google_translate_element"
+//   );
+// };
 
 const Login = () => {
   const [password, setPassword] = useState("");
@@ -69,17 +68,17 @@ const Login = () => {
     } else {
       setUserAuth(false);
     }
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
+    // var addScript = document.createElement("script");
+    // addScript.setAttribute(
+    //   "src",
+    //   "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    // );
+    // document.body.appendChild(addScript);
+    // window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
 
   return (
-    <div className="flex flex-col items-center bg-[#0d1117]  bg-cover" id="google_translate_element">
+    <div className="flex flex-col items-center bg-[#0d1117] bg-cover">
 
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
@@ -101,11 +100,9 @@ const Login = () => {
 
       <form
         onSubmit={login}
-        className="p-6 bg-[#161b22] flex flex-col items-start drop-shadow-2xl
-
-        mt-16 md:mt-12 w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
+        className="p-6 bg-[#161b22] flex flex-col items-start drop-shadow-2xl mt-16 md:mt-12 w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
       >
-       <h2 class="text-[#c9d1d9] font-bold mb-4 text-2xl">LOGIN</h2>
+       <h2 class="text-[#c9d1d9] font-semibold mb-4 text-2xl self-center">LOGIN</h2>
         <TextBox
           text="text-md text-[#c9d1d9]"
           width="w-full"
