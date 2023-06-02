@@ -22,7 +22,7 @@ const Blogs = () => {
         setName(req.data.userValidation.name);
         setEmail(req.data.userValidation.email);
         setMobile(req.data.userValidation.mobile);
-        setId(req.userValidation._id);
+        setId(req.data.userValidation._id); 
       } else {
         navigate("/");
       }
@@ -39,22 +39,19 @@ const Blogs = () => {
   useEffect(() => {
     getBlogs()
     .then((req, res) => {
-      console.log(req.data);
+      //console.log(req.data);
       const newblogs = Object.values(req.data);
-      console.log(newblogs, typeof(newblogs));
+      //console.log(newblogs, typeof(newblogs));
       setBlogs(newblogs);
   }
   );
   });
 
   const editbutton = (id) => {
-    console.log(userid, id);
-    console.log('given id ' + id['_id']);
-    console.log('current user id ' + userid);
-    if (id === userid) {
-      return 1
+    if (id.user_id === userid) {
+      return "link-primary"
     } else {
-      return 0
+      return "link-danger disabled"
     }
   }
   return (
@@ -74,7 +71,8 @@ const Blogs = () => {
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <p class="card-text">{description}</p>
-          <a href="/profile/" class="btn btn-primary">{editbutton({user_id})}</a>
+            <a href="/profile/" class={editbutton({user_id})}>edit</a>
+          
         </div>
         </div>
         </div>
