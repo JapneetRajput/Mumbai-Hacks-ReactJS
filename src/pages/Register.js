@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import logo from "../assets/logoMusicart.png";
+import React, { useState, useEffect } from "react";
 import TextBox from "../components/TextBox";
 import "../styles/login.css";
 import Loader from "../components/Loader";
 import { registerUser } from "../api/service";
 import { useNavigate } from "react-router-dom";
+
+const googleTranslateElementInit = () => {
+  new window.google.translate.TranslateElement(
+    {
+      pageLanguage: "en",
+      autoDisplay: false
+    },
+    "google_translate_element"
+  );
+};
 
 const Register = () => {
   // Init states
@@ -63,8 +72,18 @@ const Register = () => {
     }
   };
 
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-gray-500 bg-[url('https://gcdnb.pbrd.co/images/3RdZwtkasR77.png?o=1')] bg-cover "  id="google_translate_element">
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
           <Loader />
@@ -78,9 +97,9 @@ const Register = () => {
       </div>
       <form
         onSubmit={register}
-        className="px-6 py-6 bg-white flex flex-col items-start border mt-12 sm:mt-6 border-[#D9D9D9] border-3px w-5/6 sm:w-1/3 rounded-xl"
+        className="px-6 py-6 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-start border mt-12 sm:mt-6 border-[#D9D9D9] border-3px w-5/6 sm:w-1/3 rounded-xl"
       >
-        <p className="text-2xl ml-2">Register</p>
+        <h2 class="text-orange-400 font-bold mb-4 text-2xl">REGISTER</h2>
         <TextBox
           text="text-md text-black"
           width="w-full"
@@ -158,7 +177,7 @@ const Register = () => {
         />
         <button
           type="submit"
-          className="w-full mb-4 text-white hover:text-[#2E0052] hover:border-[#2E0052] hover:border bg-[#2E0052] hover:bg-white rounded-lg h-12 mt-4"
+          className="w-full  text-white bg-orange-400 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-orange-700 rounded h-14  my-4"
         >
           Continue
         </button>
@@ -176,7 +195,7 @@ const Register = () => {
           Sign in
         </span>
       </p>
-      <div className="fixed bottom-0  bg-[#2E0052] flex flex-col items-center w-full h-10 pt-2">
+      <div className=" bottom-0  bg-orange-900 bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
         <span className="text-white">Mumbai | All rights reserved</span>
       </div>
     </div>

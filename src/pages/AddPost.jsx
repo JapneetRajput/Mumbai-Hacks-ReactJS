@@ -15,9 +15,11 @@ import { profileUser } from "../api/service";
 import Navbar from "../components/Navbar";
 import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
+import Footer from "../components/Footer";
+
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
-import { UilMapPin, UilLinkAdd } from '@iconscout/react-unicons'
+import { FaLocationArrow, FaEdit } from 'react-icons/fa';
 
 const markerIcon = new L.Icon({
   iconUrl: require("../assets/markerIcon.png"),
@@ -140,7 +142,7 @@ const AddPost = () => {
         className="pt-20 flex flex-col items-center"
       >
         <h1 className="text-center text-3xl font-bold py-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-900">CREATE A POST</h1>
-        <TextBox
+        <TextBox 
           text="text-md text-black"
           width="w-full"
           height="h-12"
@@ -182,16 +184,19 @@ const AddPost = () => {
         </label>
         <button
           type="button"
-          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-blue-500 rounded h-20 my-4  "
-          onClick={addMarkerAtCurrentLocation}
+          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-gray-400 rounded h-14 w-40 my-4  "
+          onClick={addMarkerAtCurrentLocation} 
         > 
+        <div style={{display: "flex", justifyContent: "center" }}>
+          <FaLocationArrow size={25}/> &nbsp; Locate
+        </div>
         {/* <MapPinIcon class="h-6 w-6 text-gray-500" /> */}
-        <UilMapPin size ="30" color="#ffffff" className="flex ml-6"/>
-        Locate me 
+        {/* <UilMapPin size ="30" color="#ffffff" className="flex ml-6"/> */}
+         
         </button>
         <div className="w-full text-center z-0">
-          <div className="flex flex-col items-center ">
-            <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
+          <div className="flex flex-col items-center">
+            <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef} >
               <TileLayer
                 url={mapConfig.maptiler.url}
                 attribution={mapConfig.maptiler.attribution}
@@ -207,13 +212,14 @@ const AddPost = () => {
           </div>
         </div>
         <button
-          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-blue-500 rounded h-20 my-4"
+          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-gray-400 rounded h-14 w-48  my-4"
           type="submit">
-          <UilLinkAdd size ="30" color="#ffffff" className="flex ml-8"/>
-          Create a Post
+             <div style={{display: "flex", justifyContent: "center" }}>
+          <FaEdit size={25}/> &nbsp; Create a Post
+        </div>
         </button>
-        
       </form>
+      <Footer/>
       </div>
     </>
   );
