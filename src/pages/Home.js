@@ -44,28 +44,6 @@ const Home = () => {
     <>
       <Navbar />
       <div className="pt-24 bg-[#0D1117]">
-        <div className="flex flex-row ">
-          {posts &&
-            posts.map(({ title, description, lat, lng, image, _id }) => (
-              <div
-                style={{ marginLeft: "5%", marginRight: "5%" }}
-                className="sm:w-1/4 rounded overflow-hidden shadow-md"
-              >
-                <img src={`${image}`} alt="" className="w-full" />
-                <div className="px-6 py-4 ">
-                  <div className="font-semibold text-black text-xl mb-2">
-                    Title : {title}
-                    <br />
-                    Description : {description}
-                    <br />
-                    Lat : {lat} &nbsp; Lng : {lng}
-                    <br />
-                    Created by : {_id}
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
         <Carousel/>
        
         <button
