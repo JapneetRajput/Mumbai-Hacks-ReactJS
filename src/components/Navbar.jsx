@@ -38,9 +38,9 @@ const Navbar = () => {
                 About
               </li>
             </a>
-            <a href="/">
+            <a href="/blogs">
               <li className="font-bold ml-10 text-md uppercase hover:border-b cursor-pointer">
-                Skills
+                Blogs
               </li>
             </a>
             <a href="/">

@@ -36,3 +36,13 @@ export const profileUser = async (token) => {
     throw new Error("Server Error");
   }
 };
+
+// API call for getting Blogs
+export const getBlog = async () => {
+  try{
+    // Return the response
+    return await Axios.get(apiUrl + "/api/blogs");
+  } catch(error) {
+    throw new Error(error);
+  }
+};
