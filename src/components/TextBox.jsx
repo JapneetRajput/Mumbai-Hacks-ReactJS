@@ -11,7 +11,7 @@ const TextBox = (props) => {
           placeholder={props.hint}
           value={props.value}
           onChange={(e) => props.setState(e.target.value)}
-          className={`${props.input} ${props.height} ${props.width} ${props.text} ${props.backgroundColor} ${props.border} rounded-lg border-opacity-50 outline-none focus:border-[#2d3642] placeholder-gray-300 placeholder-opacity-0 transition duration-200`}
+          className={`${props.input} ${props.height} ${props.width} ${props.text} ${props.backgroundColor} ${props.border} rounded-lg border-opacity-50 outline-none focus:border-[#2d3642] placeholder-gray-300 placeholder-opacity-0 transition duration-200 `}
         />
         <span
           className={`${props.span} ${props.text} cursor-text text-[#2d3642] ${props.backgroundColor} absolute left-5 ${props.position} transition duration-200 input-text `}
