@@ -135,21 +135,21 @@ const AddPost = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="bg-gradient-to-r from-red-200 to-blue-200">
+      <Navbar/>
+      <div className=" bg-[#010409]">
       <form
         onSubmit={handleFormSubmit}
-        className="pt-20 flex flex-col items-center"
+        className="pt-20 flex flex-col items-center "
       >
-        <h1 className="text-center text-3xl font-bold py-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-900">CREATE A POST</h1>
+        <h1 className="text-center text-3xl font-bold py-8 bg-clip-text text-white">CREATE A POST</h1>
         <TextBox 
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Title"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 md:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 md:px-4"
           div=" sm:w-5/12 mb-4 w-3/4"
@@ -158,13 +158,13 @@ const AddPost = () => {
           type="text"
         />
         <TextArea
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-36"
           hint="Description"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 md:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 md:px-4"
           div=" sm:w-5/12 mb-4 w-3/4"
@@ -172,19 +172,19 @@ const AddPost = () => {
           value={description}
           type="text"
         />
-        <label className="block mb-4">
-          <span className="text-gray-700 pl-11 font-bold text-lg">
+        <label className="block mb-4 ">
+          <span className="text-[#d7dfe7] pl-11 font-semibold text-lg">
             Upload Image :{" "}
           </span>
           <input
             type="file"
             onChange={handleFileInputChange}
-            className="mt-1 w-3/5"
+            className="mt-1 w-3/5 font-semibold rounded-md border-[#161b22] border-2 text-[#d7dfe7] bg-[#0d1117]"
           />
         </label>
         <button
           type="button"
-          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-gray-400 rounded h-14 w-40 my-4  "
+          className=" shadow-none w-40 text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-md h-14  my-4 "
           onClick={addMarkerAtCurrentLocation} 
         > 
         <div style={{display: "flex", justifyContent: "center" }}>
@@ -212,7 +212,7 @@ const AddPost = () => {
           </div>
         </div>
         <button
-          className="text-white bg-blue-500 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-gray-400 rounded h-14 w-48  my-4"
+          className="shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-md h-14 w-48 my-4 "
           type="submit">
              <div style={{display: "flex", justifyContent: "center" }}>
           <FaEdit size={25}/> &nbsp; Create a Post

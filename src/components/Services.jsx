@@ -7,7 +7,7 @@ export default function Services(){
         <>
            <div class="p-20 bg-[#010409]">
           <h3 class="text-white font-bold mb-4 text-3xl">SERVICES</h3>
-          <div class="bg-[#0D1117] rounded-lg shadow-2xl md:flex">
+          <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex">
             <img src={BB} class="md:w-1/3 rounded-t-lg md:rounded-l-lg md:rounded-t-none" />
             <div class="p-6">
               <h2 class="font-bold text-xl md:text-3xl mb-2 text-white">Bombay Ballot</h2>
@@ -23,7 +23,7 @@ export default function Services(){
             </div>
           </div>
 
-          <div class="bg-[#0D1117] rounded-lg shadow-2xl md:flex mb-12 mt-12">
+          <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex mb-12 mt-12">
             <img src={PL} class="md:w-1/3 rounded-t-lg md:rounded-l-lg md:rounded-t-none" />
             <div class="p-6">
               <h2 class="font-bold text-xl md:text-3xl mb-2 text-white">Plot Lock</h2>
@@ -39,7 +39,7 @@ export default function Services(){
             </div>
         </div>
           
-          <div class="bg-[#0D1117] rounded-lg shadow-2xl md:flex mb-12 mt-12">
+          <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex mb-12 mt-12">
             <img src={BB} class="md:w-1/3 rounded-t-lg md:rounded-l-lg md:rounded-t-none" />
             <div class="p-6">
               <h2 class="font-bold text-xl md:text-3xl mb-2 text-white">Bombay Ballot</h2>
