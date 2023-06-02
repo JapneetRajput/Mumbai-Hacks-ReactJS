@@ -6,6 +6,8 @@ import Loader from "../components/Loader";
 import { loginUser } from "../api/service";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/UserContext";
+import bg from "../images/cimg1.png"
+// import { MouseParallax, ScrollParallax } from "react-just-parallax";
 /*
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -77,15 +79,17 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center bg-[url('https://gcdnb.pbrd.co/images/3RdZwtkasR77.png?o=1')]  bg-cover" id="google_translate_element">
+    <div className="flex flex-col items-center bg-[#0d1117]  bg-cover" id="google_translate_element">
+
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
           <Loader />
         </div>
       )}
+
       <div className="flex mt-16 md:mt-12 ">
         {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
-        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
+        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-[#c9d1d9]">
           MUMBAI
         </h1>
       </div>
@@ -94,20 +98,22 @@ const Login = () => {
         Invalid Login Credentials
         </div>
       }
-      
+
       <form
         onSubmit={login}
-        className="p-6 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-start border mt-16 md:mt-12 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
+        className="p-6 bg-[#161b22] flex flex-col items-start drop-shadow-2xl
+
+        mt-16 md:mt-12 w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
       >
-       <h2 class="text-orange-400 font-bold mb-4 text-2xl">LOGIN</h2>
+       <h2 class="text-[#c9d1d9] font-bold mb-4 text-2xl">LOGIN</h2>
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Email ID"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 md:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#161b22] border-2"
           span="px-1"
           input="px-3 md:px-4"
           div="mt-8"
@@ -116,13 +122,13 @@ const Login = () => {
           type="email"
         />
         <TextBox
-          text="text-md text-black"
+          text="text-md text-[#c9d1d9]"
           width="w-full"
           height="h-12"
           hint="Password"
-          backgroundColor="bg-white"
+          backgroundColor="bg-[#0d1117]"
           position="left-2 md:left-3 top-2.5"
-          border="border-gray border-2"
+          border="border-[#0d1117] border-2"
           span="px-1"
           input="px-3 md:px-4"
           div="mt-8"
@@ -132,27 +138,28 @@ const Login = () => {
         />
         <button
           type="submit"
-          className="w-full  text-white bg-orange-400 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-orange-700 rounded h-14  my-4"
+          className="shadow-none w-full text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10  my-4"
         >
           Continue
         </button>
-        <h1 className="text-sm text-left mx-1">
+        
+        <h1 className="text-[#d7dfe7] text-sm text-left mx-1">
           By continuing, you agree to Mumbai privacy notice and conditions of
           use.
         </h1>
       </form>
       <div className="mt-8 text-xs md:text-sm sm:w-1/2 lg:w-1/3 flex items-center w-full md:px-1 px-9">
-        <hr className="border-t w-full border-white flex-grow" />
-        <span className=" text-white w-full">New to Mumbai?</span>
-        <hr className="border-t w-full border-white flex-grow" />
+        <hr className="border-t w-full border-[#d7dfe7] flex-grow" />
+        <span className=" text-[#d7dfe7] w-full">New to Mumbai?</span>
+        <hr className="border-t w-full border-[#d7dfe7] flex-grow" />
       </div>
       <button
         onClick={() => navigate("/register")}
-        className=" text-white bg-orange-400 font-bold py-2 px-4 border-b-4 border-r-2 border-gray-600 hover:border-gray-400 hover:bg-orange-700 rounded h-14  my-4"
+        className=" shadow-none w-72 text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
       >
         Create your Mumbai account
       </button>
-      <div className=" bottom-0  bg-orange-900 bg-opacity-50 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
+      <div className=" bottom-0  bg-gray-500 bg-opacity-20 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
         <span className="text-white">Mumbai | All rights reserved</span>
       </div>
     </div>
