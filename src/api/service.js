@@ -38,7 +38,7 @@ export const profileUser = async (token) => {
 };
 
 // API call for getting Blogs
-export const getBlog = async () => {
+export const getBlogs = async () => {
   try{
     // Return the response
     return await Axios.get(apiUrl + "/api/blogs");
@@ -46,3 +46,22 @@ export const getBlog = async () => {
     throw new Error(error);
   }
 };
+
+// API call for getting specific Blog
+export const getBlog = async (_id) => {
+  try{
+    // Return the response
+    return await Axios.get(apiUrl + "/api/blogs/"+_id);
+  } catch(error) {
+    throw new Error(error);
+  }
+};
+
+// API call for adding new Blog
+export const addBlog = async (blog) => {
+  try{
+    return await Axios.post(apiUrl + "/api/blogs/add", blog);
+  } catch(error) {
+    throw new Error(error);
+  }
+}
