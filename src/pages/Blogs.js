@@ -53,7 +53,7 @@ const Blogs = () => {
       <div className="pt-24">Blogs: 
       {blogs && 
       blogs.map(({title, description, user_id}) => (
-        <div class="card" style="width: 18rem;">
+        <div class="card" style={{ width: "18rem;" }}>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <p class="card-text">{description}</p>
