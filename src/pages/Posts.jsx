@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import { profileUser } from "../api/service";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { BsArrowUpCircle, BsArrowUpCircleFill, BsArrowDownCircle, BsArrowDownCircleFill } from "react-icons/bs";
+
 const Posts = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -143,14 +143,13 @@ const Posts = () => {
                       </p>
                     </div>
                     <button
-                      disabled={disliked}
                       onClick={() => handleLike(post._id)}
                       className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
                     >
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        {post.likes.length}
+                        {/* {post.likes.length} */}
                         <FaThumbsUp size={25} />
                       </div>
                     </button>
@@ -163,18 +162,24 @@ const Posts = () => {
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        {post.dislikes.length}
-                        {post.dislikes.length}
+                      {/* {post.dislikes.length} */}
                         <FaThumbsDown size={25} />
                       </div>
-                    </button> */}
+                    </button>
                   </div>
                 </div>
-                
               </div>
             ))}
-            
         </div>
+        <button
+          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
+          onClick={() => navigate("/addpost")}
+        >
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <AiFillPlusCircle className="w-6 h-6 sm:w-6 sm:h-6 " /> &nbsp;
+            Create Post
+          </div>
+        </button>
         <Footer />
       </div>
     </>
