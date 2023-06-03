@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Axios from "axios";
 import { useNavigate } from "react-router";
+import { profileUser } from "../api/service";
+import { FaRegThumbsUp, FaThumbsUp, FaRegThumbsDown,  FaThumbsDown } from "react-icons/fa";
 import {
   getPostsByCategories,
   getPostsByCities,
@@ -10,8 +12,15 @@ import {
   getPostsByStates,
   profileUser,
 } from "../api/service";
-import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { AiFillPlusCircle } from "react-icons/ai";
+import toast, { Toaster } from 'react-hot-toast';
+
+function notifysuccess () {
+  toast.success('Liked');
+}
+function notifyerror () {
+  toast.error('Disiked');
+}
 
 const Posts = () => {
   let token = localStorage.getItem("token");
@@ -216,6 +225,7 @@ const Posts = () => {
             Create Post
           </div>
         </button>
+        
         <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           <div className="w-full">
             <div className="relative inline-block h-12 sm:w-1/5 mb-4 w-1/4">
@@ -363,26 +373,30 @@ const Posts = () => {
                       </p>
                     </div>
                     <button
-                      onClick={() => handleLike(post._id)}
+                      onClick={() => {handleLike(post._id); notifysuccess();}}
                       className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
                     >
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
                         {/* {post.likes.length} */}
-                        <FaThumbsUp size={25} />
+                        <FaRegThumbsUp size={25} />
                       </div>
                     </button>
-
+                   
+                    <Toaster
+                      position="top-center"
+                      reverseOrder={true}
+                    />
                     <button
-                      onClick={() => handleDislike(post._id)}
+                      onClick={() => {handleDislike(post._id); notifyerror();}}
                       className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
                     >
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        {/* {post.dislikes.length} */}
-                        <FaThumbsDown size={25} />
+                      {/* {post.dislikes.length} */}
+                        <FaRegThumbsDown size={25} />
                       </div>
                     </button>
                   </div>
