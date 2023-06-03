@@ -96,7 +96,6 @@ const Posts = () => {
       <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts &&
             posts.map((post) => (
-              <div className="w-86 self-center pt-10 bg-[#0D1117] border-2 border-[#272e38]  rounded-lg shadow   cursor-pointer  mb-5 ml-2 mr-2 hover:-translate-y-1 hover:scale-90 hover:bg-[#212833] duration-300">
               <div
                 key={post._id}
                 className="w-86 self-center pt-10  bg-[#0D1117] border-2 border-[#272e38] hover:border-[#bfc1c4] rounded-lg shadow  hover:bg-[#0d1117] cursor-pointer  mb-5 ml-2 mr-2"
