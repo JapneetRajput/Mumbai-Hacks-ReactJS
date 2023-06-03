@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { profileUser } from "../api/service";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { AiFillPlusCircle } from "react-icons/ai";
+import { BsArrowUpCircle, BsArrowUpCircleFill, BsArrowDownCircle, BsArrowDownCircleFill } from "react-icons/bs";
 const Posts = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -44,11 +45,14 @@ const Posts = () => {
       <Navbar />
       <div>
       <button
-          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
-          onClick={() => navigate("/addPost")}
+          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
+          onClick={() => navigate("/addpost")}
         >
-          <AiFillPlusCircle className="w-12 h-12 sm:w-16 sm:h-16 invert" />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+          <AiFillPlusCircle className="w-6 h-6 sm:w-6 sm:h-6 " /> &nbsp; Create Post
+          </div>
         </button>
+
       <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts &&
             posts.map(({ title, city, state, country, category, description, lat, lng, image, _id }) => (
@@ -73,9 +77,27 @@ const Posts = () => {
                     Created by : {_id}
                     </p>
                   </div>
-                  <button onClick={() => navigate("/posts")} className=" shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4" > 
+                 
+
+ 
+    <input type="radio" name="hs-radio-group" class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-radio-group-1" checked/>
+    <label for="hs-radio-group-1" class="text-sm text-gray-500 ml-2 dark:text-gray-400">
+    <div style={{display: "flex", justifyContent: "center" }}>
+                    <BsArrowUpCircle size={25}/>
+                  </div>
+    </label>
+    <input type="radio" name="hs-radio-group" class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-radio-group-1" checked/>
+    <label for="hs-radio-group-1" class="text-sm text-gray-500 ml-2 dark:text-gray-400">
+    <div style={{display: "flex", justifyContent: "center" }}>
+                    <BsArrowDownCircle size={25}/>
+                  </div>
+    </label>
+
+
+                  
+                  {/* <button onClick={() => navigate("/posts")} className=" shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4" > 
                   <div style={{display: "flex", justifyContent: "center" }}>
-                    <FaThumbsUp size={25}/>
+                    <BsArrowUpCircle size={25}/>
                   </div>
                   </button>
 
@@ -88,18 +110,14 @@ const Posts = () => {
                       >
                         <FaThumbsDown size={25} />
                       </div>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
+                
               </div>
             ))}
+            
         </div>
-        <button
-          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
-          onClick={() => navigate("/addPost")}
-        >
-          <AiFillPlusCircle className="w-12 h-12 text-white sm:w-16 sm:h-16" />
-        </button>
         <Footer />
       </div>
     </>
