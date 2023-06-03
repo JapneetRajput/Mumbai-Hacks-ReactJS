@@ -22,6 +22,8 @@ const Posts = () => {
   };
 
   const [posts, setPosts] = useState([]);
+  const [liked, setLiked] = useState(false);
+  const [disliked, setDisliked] = useState(false);
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -36,6 +38,9 @@ const Posts = () => {
     profileInit();
   }, []);
   const handleLike = async (postId) => {
+    // if (!liked) {
+    setLiked(true);
+    setDisliked(false);
     try {
       const response = await Axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/posts/${postId}/like`,
@@ -58,8 +63,12 @@ const Posts = () => {
     } catch (error) {
       console.error(error);
     }
+    // }
   };
   const handleDislike = async (postId) => {
+    // if (!disliked) {
+    setDisliked(true);
+    setLiked(false);
     try {
       const response = await Axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/posts/${postId}/dislike`,
@@ -82,18 +91,19 @@ const Posts = () => {
     } catch (error) {
       console.error(error);
     }
+    // }
   };
   return (
     <>
       <Navbar />
       <div>
-      <button
+        <button
           className="fixed right-0 bottom-0 m-8 text-md shadow-none"
           onClick={() => navigate("/addPost")}
         >
           <AiFillPlusCircle className="w-12 h-12 sm:w-16 sm:h-16 invert" />
         </button>
-      <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
+        <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts &&
             posts.map((post) => (
               <div
@@ -131,6 +141,7 @@ const Posts = () => {
                       </p>
                     </div>
                     <button
+                      disabled={disliked}
                       onClick={() => handleLike(post._id)}
                       className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
                     >
@@ -143,13 +154,14 @@ const Posts = () => {
                     </button>
 
                     <button
+                      disabled={liked}
                       onClick={() => handleDislike(post._id)}
                       className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
                     >
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                      {post.dislikes.length}
+                        {post.dislikes.length}
                         <FaThumbsDown size={25} />
                       </div>
                     </button>
