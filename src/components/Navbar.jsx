@@ -48,6 +48,11 @@ const Navbar = () => {
                 Projects
               </li>
             </a>
+            <a href="/chat" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md cursor-pointer">
+                Chat
+              </li>
+            </a>
             <a href="/logout" className="hover:text-[#babbbd]">
               <li className="font-semibold ml-10 text-md cursor-pointer">
                 Logout
