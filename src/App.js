@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Blogs from "./pages/Blogs";
+import Addblogs from "./pages/Addblogs";
 import Logout from "./pages/Logout";
 import { useContext } from "react";
 import { AuthContext } from "./context/UserContext";
@@ -29,6 +31,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/add" element={<Addblogs />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/addPost" element={<AddPost />} />
         </Route>
