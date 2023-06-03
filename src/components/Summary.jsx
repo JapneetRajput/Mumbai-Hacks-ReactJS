@@ -29,7 +29,7 @@ const Summary = () => {
       let aidata = "";
       let count = 1;
       req.data.map(({ description }) => {
-        aidata = aidata + count + ". " + description + "\n";
+        aidata = aidata + count + ") " + description + "\n";
         count++;
       });
       setNews(aidata);
