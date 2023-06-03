@@ -15,6 +15,7 @@ import { AuthContext } from "./context/UserContext";
 import Error404 from "./pages/Error404";
 import AddPost from "./pages/AddPost";
 import Posts from "./pages/Posts";
+import Chatbot from "./components/Chatbot";
 
 const Privateroute = () => {
   const auth = localStorage.getItem("token");
