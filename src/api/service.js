@@ -43,55 +43,65 @@ export const profileUser = async (token) => {
   }
 };
 
+// API call for getting Posts
+export const getPosts = async () => {
+  try {
+    // Return the response
+    return await Axios.get(apiUrl + "/api/posts", config);
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 // API call for getting Blogs
 export const getBlogs = async () => {
-  try{
+  try {
     // Return the response
     return await Axios.get(apiUrl + "/api/blogs", config);
-  } catch(error) {
+  } catch (error) {
     throw new Error(error);
   }
 };
 
 // API call for getting specific Blog
 export const getBlog = async (_id) => {
-  try{
+  try {
     // Return the response
-    return await Axios.get(apiUrl + "/api/blogs/"+_id, config);
-  } catch(error) {
+    return await Axios.get(apiUrl + "/api/blogs/" + _id, config);
+  } catch (error) {
     throw new Error(error);
   }
 };
 
 // API call for adding new Blog
 export const addBlog = async (blog) => {
-  try{
+  try {
     console.log(blog);
     return await Axios.post(apiUrl + "/api/blogs/add", blog, config);
-  } catch(error) {
+  } catch (error) {
     throw new Error(error);
   }
-}
+};
 
 // API call for updating new Blog
 export const updateBlog = async (blog, blog_id) => {
-  try{
+  try {
     return await Axios.put(apiUrl + "/api/blogs/" + blog_id, blog, config);
     // nothing
-  } catch(error) {
+  } catch (error) {
     throw new Error(error);
   }
-}
+};
 
 // API call for updating new Blog
 export const deleteBlog = async (blog_id) => {
-  try{
+  try {
     return await Axios.delete(apiUrl + "/api/blogs/" + blog_id, config);
     // nothing
-  } catch(error) {
+  } catch (error) {
     throw new Error(error);
   }
-}
+};
 
 // API call for singular post
 export const getPost = async (post_id) => {

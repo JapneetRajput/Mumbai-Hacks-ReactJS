@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import {
   MapContainer as Map,
   TileLayer,
@@ -64,6 +64,7 @@ function LocationMarker({ position, setPosition, marker, setMarker }) {
 }
 
 const AddPost = () => {
+  // const location = useContext(LocationContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   let token = localStorage.getItem("token");
