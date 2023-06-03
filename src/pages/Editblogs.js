@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { useJwt } from "react-jwt";
 import { useNavigate } from "react-router";
-import { profileUser, addBlog } from "../api/service";
+import { useLocation } from "react-router-dom";
+import { profileUser, addBlog, updateBlog, getBlog } from "../api/service";
 import Navbar from "../components/Navbar";
 import TextBox from "../components/TextBox";
 
-const Addblogs = () => {
+const Editblogs = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,12 +15,7 @@ const Addblogs = () => {
   const [user_id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [city, setCity] = useState("");
-  const [street, setStreet] = useState("");
-  const [country, setCountry] = useState("");
   const [loader, setLoader] = useState(false);
-  const [lat, setLat] = useState();
-  const [long, setLong] = useState();
 
   let token = localStorage.getItem("token");
   let api_key = process.env.REACT_APP_REVGEO_API;
@@ -28,11 +24,12 @@ const Addblogs = () => {
       authorization: token,
     },
   };
+  const location = useLocation();
+  const blog_id = location.state.myProp._id;
   
 
   const profileInit = () => {
     profileUser(token).then((req, res) => {
-      
       if(req.data.status !== "failed"){
         console.log(req.data);
         setName(req.data.userValidation.name);
@@ -45,66 +42,45 @@ const Addblogs = () => {
     });
   };
 
-  const getLocation = () => {
-    if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-        console.log(api_key);
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
-    }
-    else{
-      console.log('nahi hori location');
-    }
-  };
-
-  useEffect(() => {
-    console.log(lat)
-    Axios.get(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&lang=fr&apiKey=${api_key}`).then((data)=>{
-      const resp = data.data.features[0].properties
-      setCountry(resp["country_code"]);
-      setCity(resp["city"]);
-      setStreet(resp["street"]);
-      console.log(resp);
+  const blogInit = () => {
+    getBlog(blog_id).then((req, res) => {
+      
+      if(req.data.status !== "failed"){
+        console.log('blog Init');
+        console.log(req.data);
+        setTitle(req.data.title);
+        setDescription(req.data.description);
+      } else {
+        navigate("/blogs");
+      }
     });
-    // console.log(data.data);
-  }, [lat, long]);
-
+  };
 
   useEffect(() => {
     profileInit();
   }, []);
 
   useEffect(() => {
-    getLocation();
+    blogInit();
   }, []);
 
 
-  const addblog = (event) => {
+  const updateblog = (event) => {
     event.preventDefault();
     // Activate the loader
     setLoader(true);
     // Create a new blog
-    console.log(title, description, typeof(street), typeof(city), typeof(country));
-    if (title!=="" && description!==""){
+    console.log(title, description);
+    if (title!=="" || description!==""){
       setLoader(false);
       const blog = {
         title: title,
         description: description,
-        street: street,
-        city: city,
-        country: country,
-        user_id: user_id,
-      };
+      }
       setTitle("");
       setDescription("");
-      // setStreet("");
-      // setCity("");
-      // setCountry("");
       console.log(blog);
-      addBlog(blog)
+      updateBlog(blog, blog_id)
       .then((req,res) => {
         console.log(req.data);
         const { status, message } = req.data;
@@ -130,12 +106,12 @@ const Addblogs = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-24">Add Blogs</div>
+      <div className="pt-24">Update Blog</div>
       <form
-        onSubmit={addblog}
+        onSubmit={updateblog}
         className="px-6 py-6 bg-white flex flex-col items-start border mt-12 sm:mt-6 border-[#D9D9D9] border-3px w-5/6 sm:w-1/3 rounded-xl"
       >
-        <p className="text-2xl ml-2">Add new Blog</p>
+        {/* <p className="text-2xl ml-2">Add new Blog</p> */}
         <TextBox
           text="text-md text-black"
           width="w-full"
@@ -185,11 +161,11 @@ const Addblogs = () => {
           type="submit"
           className="w-full mb-4 text-white hover:text-[#2E0052] hover:border-[#2E0052] hover:border bg-[#2E0052] hover:bg-white rounded-lg h-12 mt-4"
         >
-          Add
+          Update
         </button>
       </form>
     </>
   );
 };
 
-export default Addblogs;
+export default Editblogs;
