@@ -6,7 +6,6 @@ import Services from "../components/Services";
 import Footer from "../components/Footer";
 import { profileUser } from "../api/service";
 import Axios from "axios";
-import { AiFillPlusCircle } from "react-icons/ai";
 
 const Home = () => {
   let token = localStorage.getItem("token");
@@ -43,39 +42,9 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-24">
-        <div className="flex flex-row ">
-          {posts &&
-            posts.map(({ title, description, lat, lng, image, _id }) => (
-              <div
-                style={{ marginLeft: "5%", marginRight: "5%" }}
-                className="sm:w-1/4 rounded overflow-hidden shadow-md"
-              >
-                <img src={`${image}`} alt="" className="w-full" />
-                <div className="px-6 py-4 ">
-                  <div className="font-semibold text-black text-xl mb-2">
-                    Title : {title}
-                    <br />
-                    Description : {description}
-                    <br />
-                    Lat : {lat} &nbsp; Lng : {lng}
-                    <br />
-                    Created by : {_id}
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
+      <div className="pt-24 bg-[#0D1117]">
         <Carousel/>
-       
-        <button
-          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
-          onClick={() => navigate("/addPost")}
-        >
-          <AiFillPlusCircle className="w-12 h-12 sm:w-16 sm:h-16" />
-        </button>
         <Services/>
-
         <Footer/>
       </div>
     </>
