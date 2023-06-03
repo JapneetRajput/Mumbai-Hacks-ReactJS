@@ -17,6 +17,7 @@ import Error404 from "./pages/Error404";
 import AddPost from "./pages/AddPost";
 import Posts from "./pages/Posts";
 import Chat from "./pages/Chat";
+import Maps from "./pages/Maps";
 
 const Privateroute = () => {
   const auth = localStorage.getItem("token");
@@ -47,6 +48,7 @@ function App() {
           <Route element={<Privateroute />}>
             <Route path="/chat" element={<Chat />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/maps" element={<Maps />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/profile" element={<Profile />} />
           <Route path="/posts/:id" element={<SpecificProfile />} />
