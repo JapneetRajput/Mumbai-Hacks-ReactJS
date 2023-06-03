@@ -21,6 +21,10 @@ const Posts = () => {
   };
 
   const [posts, setPosts] = useState();
+  const [cities, setCities] = useState();
+  const [states, setStates] = useState();
+  const [countries, setCountries] = useState();
+  const [categories, setCategory] = useState();
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -39,10 +43,36 @@ const Posts = () => {
     profileInit();
   }, []);
 
+  useEffect(() => {
+    getByCategory();
+  }, [posts]);
+
+  const getByCategory = () => {
+    if(posts){
+
+      const cities = new Set();
+      const states = new Set();
+      const countries = new Set();
+      const categories = new Set();
+      posts.map(({city, state, country, category }) => {
+        cities.add(city);
+        states.add(state);
+        countries.add(country);
+        categories.add(category);
+      })
+      console.log(cities, states, countries, categories);
+      setCities(cities);
+      setStates(states);
+      setCountries(countries);
+      setCategory(categories);
+    }
+  };
+
   return (
     <>
       <Navbar />
       <div>
+
       <button
           className="fixed right-0 bottom-0 m-8 text-md shadow-none"
           onClick={() => navigate("/addPost")}

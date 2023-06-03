@@ -92,3 +92,12 @@ export const deleteBlog = async (blog_id) => {
     throw new Error(error);
   }
 }
+
+// API call for singular post
+export const getPost = async (post_id) => {
+  try{
+    return await Axios.get(apiUrl + "/api/posts/"+ post_id, config);
+  } catch(error) {
+    throw new Error(error);
+  }
+}

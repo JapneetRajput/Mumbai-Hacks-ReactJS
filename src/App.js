@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import SpecificProfile from "./pages/SpecificProfile";
 import Blogs from "./pages/Blogs";
 import Addblogs from "./pages/Addblogs";
 import Editblogs from "./pages/Editblogs";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/posts/:id" element={<SpecificProfile />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/add" element={<Addblogs />} />
           <Route path="/blogs/edit" element={<Editblogs />} />
