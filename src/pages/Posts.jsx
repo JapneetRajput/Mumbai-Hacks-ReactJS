@@ -4,9 +4,8 @@ import Footer from "../components/Footer";
 import Axios from "axios";
 import { useNavigate } from "react-router";
 import { profileUser } from "../api/service";
-import {FaThumbsUp, FaThumbsDown} from "react-icons/fa";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { AiFillPlusCircle } from "react-icons/ai";
-
 const Posts = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const Posts = () => {
   const [posts, setPosts] = useState();
 
   useEffect(() => {
-    Axios.get("https://mumbai-hacks-express.vercel.app/api/posts/", {
+    Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
       headers: {
         authorization: token,
       },
@@ -80,17 +79,28 @@ const Posts = () => {
                   </div>
                   </button>
 
-                  <button onClick={() => navigate("/posts")} className=" shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4" > 
-                  <div style={{display: "flex", justifyContent: "center" }}>
-                    <FaThumbsDown size={25}/>
+                    <button
+                      onClick={() => navigate("/posts")}
+                      className=" shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
+                    >
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <FaThumbsDown size={25} />
+                      </div>
+                    </button>
                   </div>
-                  </button>
                 </div>
               </div>
-              </div>
             ))}
-          </div>
-        <Footer/>
+        </div>
+        <button
+          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
+          onClick={() => navigate("/addPost")}
+        >
+          <AiFillPlusCircle className="w-12 h-12 text-white sm:w-16 sm:h-16" />
+        </button>
+        <Footer />
       </div>
     </>
   );
