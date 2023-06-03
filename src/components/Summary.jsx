@@ -30,7 +30,7 @@ const Summary = () => {
       let aidata = "";
       let count = 1;
       req.data.map(({ description }) => {
-        aidata = aidata + count + ". " + description + "\n";
+        aidata = aidata + count + ") " + description + "\n";
         count++;
       });
       setNews(aidata);
@@ -58,7 +58,7 @@ const Summary = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            message: `Summarise each news description in single line with a title : ${news}`,
+            message: `Summarise each news description in single line with a title. Each new news description starts with a number followed by ). For eg: first news starts with 1),second news starts with 2) and so on. Following are the news descriptions :  ${news}`,
           }),
         }
       );
