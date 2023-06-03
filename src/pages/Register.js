@@ -83,7 +83,7 @@ const Register = () => {
   // }, []);
 
   return (
-    <div className="flex flex-col items-center bg-[#0d1117] bg-cover "  >
+    <div className="flex flex-col items-center bg-[#0d1117] bg-cover ">
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
           <Loader />
@@ -99,9 +99,12 @@ const Register = () => {
         onSubmit={register}
         className="px-6 py-6 bg-[#161b22] flex flex-col items-start drop-shadow-2xl mt-16 md:mt-12 w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl shadow-2xl"
       >
-        <h2 class="text-[#c9d1d9] font-semibold mb-4 text-2xl self-center">REGISTER</h2>
+        <h2 class="text-[#c9d1d9] font-semibold mb-4 text-2xl self-center">
+          REGISTER
+        </h2>
         <TextBox
-          text="text-md text-[#c9d1d9]"
+          textInput="text-md text-[#c9d1d9]"
+          textLabel="text-md text-white"
           width="w-full"
           height="h-12"
           hint="Name"
@@ -116,7 +119,8 @@ const Register = () => {
           value={name}
         />
         <TextBox
-          text="text-md text-[#c9d1d9]"
+          textInput="text-md text-[#c9d1d9]"
+          textLabel="text-md text-white"
           width="w-full"
           height="h-12"
           hint="Mobile Number"
@@ -131,7 +135,8 @@ const Register = () => {
           value={mobileNumber}
         />
         <TextBox
-          text="text-md text-[#c9d1d9]"
+          textInput="text-md text-[#c9d1d9]"
+          textLabel="text-md text-white"
           width="w-full"
           height="h-12"
           hint="Email ID"
@@ -146,7 +151,8 @@ const Register = () => {
           value={email}
         />
         <TextBox
-          text="text-md text-[#c9d1d9]"
+          textInput="text-md text-[#c9d1d9]"
+          textLabel="text-md text-white"
           width="w-full"
           height="h-12"
           hint="Password"
@@ -161,7 +167,8 @@ const Register = () => {
           value={password}
         />
         <TextBox
-          text="text-md text-[#c9d1d9]"
+          textInput="text-md text-[#c9d1d9]"
+          textLabel="text-md text-white"
           width="w-full"
           height="h-12"
           hint="Confirm Password"

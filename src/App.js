@@ -51,10 +51,10 @@ function App() {
             <Route path="/maps" element={<Maps />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/profile" element={<Profile />} />
-          <Route path="/posts/:id" element={<SpecificProfile />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/add" element={<Addblogs />} />
-          <Route path="/blogs/edit" element={<Editblogs />} />
+            <Route path="/posts/:id" element={<SpecificProfile />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/add" element={<Addblogs />} />
+            <Route path="/blogs/edit" element={<Editblogs />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/addPost" element={<AddPost />} />
           </Route>
