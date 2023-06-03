@@ -38,9 +38,9 @@ const Navbar = () => {
                 Posts
               </li>
             </a>
-            <a href="/" className="hover:text-[#babbbd]">
-              <li className="font-semibold ml-10 text-md  cursor-pointer">
-                Skills
+            <a href="/blogs" className="hover:text-[#babbbd]">
+              <li className="font-semibold ml-10 text-md cursor-pointer">
+                Blogs
               </li>
             </a>
             <a href="/" className="hover:text-[#babbbd]">

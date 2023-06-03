@@ -87,7 +87,13 @@ const Posts = () => {
     <>
       <Navbar />
       <div>
-        <div className="pt-24 bg-[#010409] flex flex-wrap justify-center	">
+      <button
+          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
+          onClick={() => navigate("/addPost")}
+        >
+          <AiFillPlusCircle className="w-12 h-12 sm:w-16 sm:h-16 invert" />
+        </button>
+      <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts &&
             posts.map((post) => (
               <div
