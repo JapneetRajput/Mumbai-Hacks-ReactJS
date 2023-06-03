@@ -30,7 +30,7 @@ const Chat = () => {
   }, []);
   return (
     <div>
-      <Chatbot/>
+      <Chatbot />
     </div>
   );
 };
