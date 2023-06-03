@@ -43,11 +43,9 @@ const Home = () => {
     <>
       <Navbar />
       <div className="pt-24 bg-[#0D1117]">
-        <Carousel />
-
-        <Services />
-
-        <Footer />
+        <Carousel/>
+        <Services/>
+        <Footer/>
       </div>
     </>
   );
