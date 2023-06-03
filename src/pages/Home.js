@@ -7,6 +7,9 @@ import Footer from "../components/Footer";
 import { profileUser } from "../api/service";
 import Axios from "axios";
 import Summary from "../components/Summary";
+import Chatbot from "../components/Chatbot";
+import { BsFillChatLeftDotsFill } from "react-icons/bs";
+
 
 const Home = () => {
   let token = localStorage.getItem("token");
@@ -44,6 +47,7 @@ const Home = () => {
     <>
       <Navbar />
       <div className="pt-24 bg-[#0D1117]">
+        <Chatbot/>
         <Carousel />
         <Services />
         <Footer />

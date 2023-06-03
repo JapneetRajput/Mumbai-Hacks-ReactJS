@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { profileUser } from "../api/service";
 import Navbar from "../components/Navbar";
-import { useNavigate } from "react-router";
+import Chatbot from "../components/Chatbot";
 import Summary from "../components/Summary";
+import { useNavigate } from "react-router";
 
 const Chat = () => {
   let token = localStorage.getItem("token");
@@ -29,7 +30,7 @@ const Chat = () => {
   }, []);
   return (
     <div>
-      <Summary />
+      <Chatbot/>
     </div>
   );
 };
