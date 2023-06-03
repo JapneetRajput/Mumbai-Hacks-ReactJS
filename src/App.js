@@ -15,7 +15,7 @@ import { AuthContext } from "./context/UserContext";
 import Error404 from "./pages/Error404";
 import AddPost from "./pages/AddPost";
 import Posts from "./pages/Posts";
-import Chatbot from "./components/Chatbot";
+import Chat from "./pages/Chat";
 import Maps from "./pages/Maps";
 
 const Privateroute = () => {
@@ -45,6 +45,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route element={<Privateroute />}>
+            <Route path="/chat" element={<Chat />} />
             <Route path="/home" element={<Home />} />
             <Route path="/maps" element={<Maps />} />
             <Route path="/posts" element={<Posts />} />
