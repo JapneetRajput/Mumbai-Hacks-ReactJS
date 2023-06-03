@@ -43,9 +43,6 @@ const Posts = () => {
     profileInit();
   }, []);
   const handleLike = async (postId) => {
-    // if (!liked) {
-    setLiked(true);
-    setDisliked(false);
     try {
       const response = await Axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/posts/${postId}/like`,
@@ -68,12 +65,8 @@ const Posts = () => {
     } catch (error) {
       console.error(error);
     }
-    // }
   };
   const handleDislike = async (postId) => {
-    // if (!disliked) {
-    setDisliked(true);
-    setLiked(false);
     try {
       const response = await Axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/posts/${postId}/dislike`,
@@ -96,7 +89,6 @@ const Posts = () => {
     } catch (error) {
       console.error(error);
     }
-    // }
   };
   useEffect(() => {
     getByCategory();
@@ -185,7 +177,6 @@ const Posts = () => {
                     </button>
 
                     <button
-                      disabled={liked}
                       onClick={() => handleDislike(post._id)}
                       className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
                     >
