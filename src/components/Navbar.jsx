@@ -65,14 +65,14 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] py-10 px-6 ease-in duration-500"
+              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#161B22] py-10 px-6 ease-in duration-500"
               : "hidden"
           }
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
-                MEMORIES
+              <h1 className="text-4xl font-bold bg-clip-text text-white">
+                Mumbai
               </h1>
               <div
                 onClick={handleNav}
@@ -81,44 +81,41 @@ const Navbar = () => {
                 <AiOutlineClose size={15} />
               </div>
             </div>
-            <div className="border-b border-gray-300 my-4">
-              <p className="w-[100%] md:w-[90%] py-2">
+            <div className="border-gray-300 my-4">
+              {/* <p className="w-[100%] md:w-[90%] py-2">
                 Let's build something legendary
-              </p>
+              </p> */}
             </div>
           </div>
-          <div>
+          <div className="mt-10">
             <ul className="uppercase font-bold">
               <a href="/home">
-                <li className="py-4 text-md cursor-pointer hover:border-b">
+                <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
                   Home
                 </li>
               </a>
               <a href="/posts">
-                <li className="py-4 text-md cursor-pointer hover:border-b">
+                <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
                   Posts
                 </li>
               </a>
               <a href="/">
-                <li className="py-4 text-md cursor-pointer hover:border-b">
+                <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
                   Skills
                 </li>
               </a>
               <a href="/">
-                <li className="py-4 text-md cursor-pointer hover:border-b">
+                <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
                   Projects
                 </li>
               </a>
               <a href="/logout">
-                <li className="py-4 text-md cursor-pointer hover:border-b">
+                <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
                   Logout
                 </li>
               </a>
             </ul>
-            <div className="pt-[40%]">
-              <p className="uppercase tracking widest text-[#5651e5]">
-                Let's connect
-              </p>
+            <div className="pt-[99%]">
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
                 <a
                   href="https://www.linkedin.com/in/japneetrajput/"
