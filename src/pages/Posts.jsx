@@ -153,10 +153,13 @@ const Posts = () => {
             ))}
         </div>
         <button
-          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
-          onClick={() => navigate("/addPost")}
+          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
+          onClick={() => navigate("/addpost")}
         >
-          <AiFillPlusCircle className="w-12 h-12 text-white sm:w-16 sm:h-16" />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <AiFillPlusCircle className="w-6 h-6 sm:w-6 sm:h-6 " /> &nbsp;
+            Create Post
+          </div>
         </button>
         <Footer />
       </div>
