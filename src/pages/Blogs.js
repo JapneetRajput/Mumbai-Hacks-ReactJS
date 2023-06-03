@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useJwt } from "react-jwt";
-import { profileUser, getBlogs, getBlog } from "../api/service";
+import { profileUser, getBlogs, getBlog, deleteBlog } from "../api/service";
 import { useNavigate } from "react-router";
 import Navbar from "../components/Navbar";
-
+ 
 const Blogs = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -47,13 +47,29 @@ const Blogs = () => {
   );
   });
 
-  const editbutton = (id) => {
+  const deleteblog = (blog_id) => {
+    // console.log('blog id is');
+    // console.log(blog_id);
+    deleteBlog(blog_id)
+    .then((req, res) => {
+      navigate("/blogs");
+    });
+  };
+
+
+  const editbutton = (id, blog_id) => {
+    // console.log('editing');
+    // console.log(blog_id._id);
     if (id.user_id === userid) {
-      return <a class="btn btn-primary" role="button" aria-disabled="false">Edit</a>
+      return (<><a class="btn btn-primary" role="button" aria-disabled="false" onClick={()=>navigate("/blogs/edit", {state: { myProp: blog_id}})}>Edit</a> &nbsp;
+      <a class="btn btn-primary" role="button" aria-disabled="false" onClick={()=>deleteblog(blog_id._id)}>Delete</a> 
+      </>
+      )
     } else {
       return <a class="btn btn-primary disabled" role="button" aria-disabled="true">Cannot Edit</a>
     }
   }
+
   return (
     <>
       <Navbar />
@@ -63,16 +79,19 @@ const Blogs = () => {
         <div class="container">
         <a href="/blogs/add" class="btn btn-success">Add Blogs</a>
         </div>
-        <h2>Blogs:</h2> 
+        <h2>Blogs:</h2>
       {blogs && 
-      blogs.map(({_id, title, description, user_id, location}) => (
+      blogs.map(({_id, title, description, street, city, country, user_id}) => (
         <div class="container">
         <div class="card" style={{ width: "18rem;"}}>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <p class="card-text">{description}</p>
+          <p class="card-text">{street}</p>
+          <p class="card-text">{city}</p>
+          <p class="card-text">{country}</p>
             {/* <a href="/profile/" class={editbutton({user_id})}>edit</a> */}
-            {editbutton({user_id})}
+            {editbutton({user_id}, {_id})}
         </div>
         </div>
         </div>
