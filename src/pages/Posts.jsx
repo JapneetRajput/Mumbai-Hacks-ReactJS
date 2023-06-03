@@ -5,6 +5,8 @@ import Axios from "axios";
 import { useNavigate } from "react-router";
 import { profileUser } from "../api/service";
 import {FaThumbsUp, FaThumbsDown} from "react-icons/fa";
+import { AiFillPlusCircle } from "react-icons/ai";
+
 const Posts = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -42,22 +44,32 @@ const Posts = () => {
     <>
       <Navbar />
       <div>
-      <div className="pt-24 bg-[#010409] flex flex-wrap justify-center	">
+      <button
+          className="fixed right-0 bottom-0 m-8 text-md shadow-none"
+          onClick={() => navigate("/addPost")}
+        >
+          <AiFillPlusCircle className="w-12 h-12 sm:w-16 sm:h-16 invert" />
+        </button>
+      <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts &&
-            posts.map(({ title, description, lat, lng, image, _id }) => (
-              <div className="w-86 self-center pt-10  bg-[#0D1117] border-2 border-[#272e38] hover:border-[#bfc1c4] rounded-lg shadow  hover:bg-[#0d1117] cursor-pointer  mb-5 ml-2 mr-2">
+            posts.map(({ title, city, state, country, category, description, lat, lng, image, _id }) => (
+              <div className="w-86 self-center pt-10 bg-[#0D1117] border-2 border-[#272e38] hover:border-[#bfc1c4] rounded-lg shadow  hover:bg-[#0d1117] cursor-pointer  mb-5 ml-2 mr-2">
               <div
                 style={{ marginLeft: "5%", marginRight: "5%", alignItems: "center" }}
-                className=" rounded overflow-hidden shadow-md self-center"
+                className=" rounded overflow-hidden shadow-md self-center "
               >
-                <img src={`${image}`} alt="" className=" self-center rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg inline" />
+                <img src={`${image}`} alt="" className=" self-center rounded-t-lg object-contain w-40 h-40 md:rounded-none md:rounded-l-lg inline" />
                 <div className="px-6 py-4 ">
                   <div className="flex flex-col justify-between p-4 leading-normal">
                   <h5 class="mb-2 text-2xl font-semibold uppercase tracking-tight text-white"> Title : {title}</h5>
                     <br />
                     <p class="mb-3 font-medium text-[#c9d1d9]">Description : {description}
-                    <br />
-                    Lat : {lat} &nbsp; Lng : {lng}
+                    <br /> {category}
+                    <br/>
+                    Lat : {lat} <br/> Lng : {lng} <br/>
+                    City: {city} <br/>
+                    State: {state} <br/>
+                    Country: {country} 
                     <br />
                     Created by : {_id}
                     </p>
