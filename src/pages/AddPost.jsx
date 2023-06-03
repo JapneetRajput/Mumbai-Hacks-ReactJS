@@ -16,6 +16,7 @@ import Navbar from "../components/Navbar";
 import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
+import Modal from "../components/Modal";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
@@ -119,7 +120,7 @@ const AddPost = () => {
       .then((res) => {
         console.log(res.data);
         // navigate("/home");
-        alert("Post Created Successfully");
+        <Modal/>
       })
       .catch((err) => console.log(err));
   };
