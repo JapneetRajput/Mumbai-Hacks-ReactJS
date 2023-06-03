@@ -73,7 +73,7 @@ const Chatbot = () => {
   return (
     <div className="chatbot" style={{"background-color": "rgb(0 0 0 / 75%)"}}>
       <button
-          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] text-lg  font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-16 my-4 w-40"
+          className="fixed right-5 bottom-0 z-99  shadow-none text-[#d7dfe7] bg-[#1f7e30] text-lg  font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-16 my-4 w-40"
           onClick={() => setShowModal(true)}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -116,7 +116,7 @@ const Chatbot = () => {
       {showModal ? (
         <>
           <div
-            className=" justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className=" justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-99 outline-none focus:outline-none"
           >
             <div className=" md:w-96 my-6 mx-auto max-w-3xl fixed">
               {/*content*/}
