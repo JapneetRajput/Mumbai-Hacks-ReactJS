@@ -49,9 +49,9 @@ const Blogs = () => {
 
   const editbutton = (id) => {
     if (id.user_id === userid) {
-      return "link-primary"
+      return <a class="btn btn-primary" role="button" aria-disabled="false">Edit</a>
     } else {
-      return "link-danger disabled"
+      return <a class="btn btn-primary disabled" role="button" aria-disabled="true">Cannot Edit</a>
     }
   }
   return (
@@ -71,8 +71,8 @@ const Blogs = () => {
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           <p class="card-text">{description}</p>
-            <a href="/profile/" class={editbutton({user_id})}>edit</a>
-          
+            {/* <a href="/profile/" class={editbutton({user_id})}>edit</a> */}
+            {editbutton({user_id})}
         </div>
         </div>
         </div>

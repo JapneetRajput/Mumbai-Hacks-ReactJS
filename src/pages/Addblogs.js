@@ -27,7 +27,7 @@ const Addblogs = () => {
         setMobile(req.data.userValidation.mobile);
         setId(req.data.userValidation._id);
       } else {
-        navigate("/");
+        navigate("/blogs");
       }
     });
   };
@@ -41,7 +41,7 @@ const Addblogs = () => {
     // Activate the loader
     setLoader(true);
     // Create a new user
-    if (title!=="" && description!=="" && location!=""){
+    if (title!=="" && description!=="" && location!==""){
       setLoader(false);
       const blog = {
         title: title,
@@ -61,7 +61,7 @@ const Addblogs = () => {
           alert(message);
         } else {
           // alert(message);
-          navigate("/");
+          navigate("/blogs");
         }
       })
       .catch((error) => {
