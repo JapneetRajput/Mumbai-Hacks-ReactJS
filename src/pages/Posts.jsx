@@ -24,6 +24,10 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
+  const [cities, setCities] = useState();
+  const [states, setStates] = useState();
+  const [countries, setCountries] = useState();
+  const [categories, setCategory] = useState();
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -32,6 +36,7 @@ const Posts = () => {
       },
     })
       .then((res) => {
+        console.log(res.data);
         setPosts(res.data);
       })
       .catch((err) => console.log(err));
@@ -93,13 +98,38 @@ const Posts = () => {
     }
     // }
   };
+  useEffect(() => {
+    getByCategory();
+  }, [posts]);
+
+  const getByCategory = () => {
+    if(posts){
+
+      const cities = new Set();
+      const states = new Set();
+      const countries = new Set();
+      const categories = new Set();
+      posts.map(({city, state, country, category }) => {
+        cities.add(city);
+        states.add(state);
+        countries.add(country);
+        categories.add(category);
+      })
+      console.log(cities, states, countries, categories);
+      setCities(cities);
+      setStates(states);
+      setCountries(countries);
+      setCategory(categories);
+    }
+  };
+
   return (
     <>
       <Navbar />
       <div>
         <button
           className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
-          onClick={() => navigate("/addpost")}
+          onClick={() => navigate("/addPost")}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
           <AiFillPlusCircle className="w-6 h-6 sm:w-6 sm:h-6 " /> &nbsp; Create Post
