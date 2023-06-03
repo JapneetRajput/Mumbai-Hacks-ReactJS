@@ -5,7 +5,6 @@ import { getPosts } from "../api/service";
 import Axios from "axios";
 
 const Summary = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const chatBodyRef = useRef(null);
@@ -38,15 +37,14 @@ const Summary = () => {
     });
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
 
     // Add user message to the chat history
+    
     setMessages((prevMessages) => [
       ...prevMessages,
       { content: input, sender: "user" },
     ]);
-    setInput("");
 
     try {
       // Send user message to the API to generate a response
@@ -58,7 +56,7 @@ const Summary = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            message: `Summarise each news description in single line with a title. Each new news description starts with a number followed by ). For eg: first news starts with 1),second news starts with 2) and so on. Following are the news descriptions :  ${news}`,
+            message: `Summarise each news with a title : ${news} in a new line`,
           }),
         }
       );
@@ -77,58 +75,61 @@ const Summary = () => {
     }
   };
 
+  useEffect(()=>{
+    if(news){
+      handleSubmit()
+    }
+  },[news])
+
   const scrollToBottom = () => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
     }
   };
 
-  const openChat = () => {
-    setIsChatOpen(true);
-  };
-
-  const closeChat = () => {
-    setIsChatOpen(false);
-  };
-
   return (
-    <div className="chatbot">
-      <button className="chat-button" onClick={openChat}>
-        <img src="chat-icon.png" alt="Chat" className="chat-icon" />
-      </button>
-      <Modal
-        isOpen={isChatOpen}
-        onRequestClose={closeChat}
-        className="chat-modal"
-      >
-        <div className="chat-container">
-          <div className="chat-header">
-            <button className="close-button" onClick={closeChat}>
-              X
-            </button>
-            Chatbot
-          </div>
-          <div ref={chatBodyRef} className="chat-body">
-            {messages.map((message, index) => (
-              <div key={index} className={`message ${message.sender}`}>
-                {message.content}
+    <>
+      <div className=" justify-center  items-center position-relative outline-none focus:outline-none">
+        <div className="  my-6 mx-auto max-w-7xl ">
+          {/*content*/}
+          <div className="border-[#161b22] border-2 rounded-lg relative flex flex-col w-full bg-[#0D1117] ">
+            {/*header*/}
+            <div className="flex items-center justify-center  h-16 p-2 border-b border-solid border-[#d7dfe7] rounded-t">
+              <h3 className="text-xl uppercase text-[#d7dfe7] font-semibold">
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  &nbsp; NEWS SUMMARY
+                </div>
+              </h3>
+            </div>
+            {/*body*/}
+            <div className="relative flex-wrap">
+              <div
+                ref={chatBodyRef}
+                className="text-white p-10 min-h-[200px] max-h-[500px] overflow-y-auto whitespace-pre-line"
+              >
+                {messages.map((message, index) => (
+                  <div key={index} className={`message ${message.sender}`}>
+                    {message.content}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <div className="chat-footer">
-            <form onSubmit={handleSubmit}>
+            </div>
+
+            {/* <form onSubmit={handleSubmit}>
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
+                className="bg-[#0D1117] border-[#d7dfe7] border-3 text-white max-w-2xl self-center"
               />
-              <button type="submit">Send</button>
-            </form>
+              
+
+                {/*footer*/}
           </div>
         </div>
-      </Modal>
-    </div>
+      </div>
+    </>
   );
 };
 

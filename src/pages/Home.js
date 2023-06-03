@@ -6,9 +6,7 @@ import Services from "../components/Services";
 import Footer from "../components/Footer";
 import { profileUser } from "../api/service";
 import Axios from "axios";
-import Summary from "../components/Summary";
 import Chatbot from "../components/Chatbot";
-import { BsFillChatLeftDotsFill } from "react-icons/bs";
 
 
 const Home = () => {
