@@ -116,6 +116,7 @@ export const getPost = async (post_id) => {
 export const getPostsByCities = async (city) => {
   try {
     const cit = city.toString();
+    console.log(cit);
     return await Axios.get(`${apiUrl}/api/posts/filterByCities/${cit}`, config);
   } catch (error) {
     throw new Error(error);

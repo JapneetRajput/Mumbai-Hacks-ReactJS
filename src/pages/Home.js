@@ -8,7 +8,20 @@ import { profileUser } from "../api/service";
 import Axios from "axios";
 import Chatbot from "../components/Chatbot";
 import Slider from "../components/slider";
+import {
+  FaRegThumbsUp,
+  FaThumbsUp,
+  FaRegThumbsDown,
+  FaThumbsDown,
+} from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
+function notifysuccess() {
+  toast.success("Liked");
+}
+function notifyerror() {
+  toast.error("Disiked");
+}
 
 const Home = () => {
   let token = localStorage.getItem("token");
@@ -17,6 +30,7 @@ const Home = () => {
   const [lati, setLati] = useState();
   const [long, setLong] = useState();
   const [distances, setDistances] = useState([]);
+  const [distance, setDistance] = useState(0);
   let api_key = process.env.REACT_APP_REVGEO_API;
   const profileInit = () => {
     profileUser(token).then((req, res) => {
@@ -92,7 +106,6 @@ const Home = () => {
   useEffect(() => {
     console.log(posts);
   }, [posts])
-  
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -105,14 +118,70 @@ const Home = () => {
         setPosts(res.data);
       })
       .catch((err) => console.log(err));
-      profileInit();
-      
   }, []);
+useEffect(()=>{
+  profileInit();
+}, []);
 
   useEffect(() => {
     calculateRadius();
     getLocation();
   }, [lati, long]);
+
+  useEffect(() => {
+    // window.location.reload();
+    console.log("middle");
+  }, [distance])
+
+  
+  const handleLike = async (postId) => {
+    try {
+      const response = await Axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/posts/${postId}/like`,
+        null,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      const updatedPosts = posts.map((post) => {
+        if (post._id === postId) {
+          return { ...post, likes: response.data.likes };
+        }
+        return post;
+      });
+
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleDislike = async (postId) => {
+    try {
+      const response = await Axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/posts/${postId}/dislike`,
+        null,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      const updatedPosts = posts.map((post) => {
+        if (post._id === postId) {
+          return { ...post, dislikes: response.data.dislikes };
+        }
+        return post;
+      });
+
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -121,8 +190,6 @@ const Home = () => {
       <div className="pt-24 bg-[#0D1117]">
         <Chatbot/>
         <Carousel />
-        <Services />
-        <Slider/>
         <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts && 
             posts.map((post) => (
@@ -162,30 +229,30 @@ const Home = () => {
                       </p>
                     </div>
                     <button
-                      // onClick={() => {handleLike(post._id); notifysuccess();}}
+                      onClick={() => {handleLike(post._id); notifysuccess();}}
                       className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
                     >
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        {/* {post.likes.length} */}
-                        {/* <FaRegThumbsUp size={25} /> */}
+                        {post.likes.length}
+                        <FaRegThumbsUp size={25} />
                       </div>
                     </button>
                    
-                    {/* <Toaster
+                    <Toaster
                       position="top-center"
                       reverseOrder={true}
-                    /> */}
+                    />
                     <button
-                      // onClick={() => {handleDislike(post._id); notifyerror();}}
+                      onClick={() => {handleDislike(post._id); notifyerror();}}
                       className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
                     >
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                      {/* {post.dislikes.length} */}
-                        {/* <FaRegThumbsDown size={25} /> */}
+                      {post.dislikes.length}
+                        <FaRegThumbsDown size={25} />
                       </div>
                     </button>
                   </div>
@@ -193,6 +260,8 @@ const Home = () => {
               </div>
             ))}
         </div>
+        <Services />
+        {/* <Slider distance={distance} setDistance={setDistance}/> */}
         <Footer />
       </div>
     </>

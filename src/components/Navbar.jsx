@@ -3,7 +3,7 @@ import { AiOutlineMail, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AuthContext } from "../context/UserContext";
-import Logo from "../assets/lOGO.gif"
+import Logo from "../assets/lOGO.gif";
 const Navbar = () => {
   let token = localStorage.getItem("token");
   const { userAuth, setUserAuth } = useContext(AuthContext);
@@ -20,10 +20,12 @@ const Navbar = () => {
   return (
     <div className="fixed w-full h-16 shadow-xl bg-[#161b22] text-white tracking-wide mb-0  z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
-      <img src={Logo} className="flex flex-wrap w-14 h-14" />
-        <h1 className="flex flex-wrap px-7 text-2xl sm:text-2xl md:text-2xl cursor-pointer pl-0 font-bold text-[#c9d1d9]">
-           BOMBAY BULLETIN
-        </h1>
+        <div className="flex flex-row">
+          <img alt="BB" src={Logo} className="w-12 h-12 inline" />
+          <h1 className="flex flex-col items-center mt-2 ml-2 text-2xl sm:text-2xl md:text-2xl cursor-pointer pl-0 font-bold text-[#c9d1d9]">
+            BOMBAY BULLETIN
+          </h1>
+        </div>
         <div>
           <ul className="hidden md:flex ">
             {/* <Link href='/' className='invisible ml-10 text-md font-bold uppercase'>
@@ -36,7 +38,7 @@ const Navbar = () => {
             </a>
             <a href="/posts" className="hover:text-[#babbbd]">
               <li className="font-semibold ml-10 text-md cursor-pointer">
-                Posts
+                News
               </li>
             </a>
             <a href="/blogs" className="hover:text-[#babbbd]">
@@ -49,11 +51,7 @@ const Navbar = () => {
                 Maps
               </li>
             </a>
-            <a href="/chat" className="hover:text-[#babbbd]">
-              <li className="font-semibold ml-10 text-md cursor-pointer">
-                Chat
-              </li>
-            </a>
+
             <a href="/profile" className="hover:text-[#babbbd]">
               <li className="font-semibold ml-10 text-md cursor-pointer">
                 Profile
@@ -107,12 +105,12 @@ const Navbar = () => {
               </a>
               <a href="/posts">
                 <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
-                  Posts
+                  News
                 </li>
               </a>
-              <a href="/">
+              <a href="/blogs">
                 <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
-                  Skills
+                  Blogs
                 </li>
               </a>
               <a href="/maps">

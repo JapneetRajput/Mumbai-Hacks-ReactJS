@@ -9,9 +9,6 @@ import { MdCategory, MdTimer } from "react-icons/md";
 import Footer from "../components/Footer"
 
 const SpecificProfile = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -34,9 +31,6 @@ const SpecificProfile = () => {
       console.log(req.data);
       if (req.data.status !== "failed") {
         console.log(req.data);
-        setName(req.data.userValidation.name);
-        setEmail(req.data.userValidation.email);
-        setMobile(req.data.userValidation.mobile);
       } else {
         navigate("/");
       }

@@ -34,12 +34,20 @@ const Posts = () => {
       console.log(req.data);
       if (req.data.status !== "failed") {
         console.log(req.data);
+        setName(req.data.userValidation.name);
+        setEmail(req.data.userValidation.email);
+        setMobile(req.data.userValidation.mobile);
+        setId(req.data.userValidation._id);
       } else {
         navigate("/");
       }
     });
   };
 
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [userid, setId] = useState("");
   const [posts, setPosts] = useState([]);
   const [fixedPosts, setFixedPosts] = useState([]);
   const [liked, setLiked] = useState(false);
@@ -344,7 +352,7 @@ const Posts = () => {
             posts.map((post) => (
               <div
                 key={post._id}
-                className="w-86 self-center pt-10  bg-[#0D1117] border-2 border-[#272e38] hover:border-[#bfc1c4] rounded-lg shadow  hover:bg-[#0d1117] cursor-pointer  mb-5 ml-2 mr-2" onClick={() => navigate(post._id)}
+                className="w-86 self-center pt-10  bg-[#0D1117] border-2 border-[#272e38] hover:border-[#bfc1c4] rounded-lg shadow  hover:bg-[#0d1117] cursor-pointer  mb-5 ml-2 mr-2"
               >
                 <div
                   style={{
@@ -361,15 +369,22 @@ const Posts = () => {
                   />
                   <div className="px-6 py-4 ">
                     <div className="flex flex-col justify-between p-4 leading-normal">
-                      <h5 className="mb-2 text-2xl font-semibold uppercase tracking-tight text-white">
+                      <h5
+                        className="mb-2 text-2xl font-semibold uppercase tracking-tight text-white "
+                        onClick={() => navigate(post._id)}
+                      >
                         Title: {post.title}
                       </h5>
                       <br />
                       <p className="mb-3 font-medium text-[#c9d1d9]">
                         Description: {post.description}
                         <br />
-                        Lat: {post.lat} &nbsp; Lng: {post.lng}
+                        City: {post.city}
                         <br />
+                        State: {post.state}
+                        <br />
+                        {/* Lat: {post.lat} &nbsp; Lng: {post.lng}
+                        <br /> */}
                         Created by: {post._id}
                         <p className="mb-3 font-medium text-[#c9d1d9]">
                           <br />
