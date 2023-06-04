@@ -2,13 +2,17 @@ import React, { useRef, useState } from "react";
 import BB from "../images/BB.png";
 import PL from "../images/PL.png";
 import { useNavigate } from "react-router";
+import Summary from "../components/Summary"
 
 export default function Services() {
   const navigate = useNavigate();
   return (
     <>
-      <div class="p-20 bg-[#010409]">
+      <div class="p-20 bg-[#010409] Z-0">
+        
+      
         <h3 class="text-white font-bold mb-4 text-3xl">SERVICES</h3>
+        
         <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex">
           <img
             alt="Bombay Ballot"
@@ -36,7 +40,7 @@ export default function Services() {
             </button>
           </div>
         </div>
-
+        <Summary/>
         <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex mb-12 mt-12">
           <img
             src={PL}
