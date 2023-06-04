@@ -3,7 +3,7 @@ import { AiOutlineMail, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AuthContext } from "../context/UserContext";
-
+import Logo from "../assets/lOGO.gif"
 const Navbar = () => {
   let token = localStorage.getItem("token");
   const { userAuth, setUserAuth } = useContext(AuthContext);
@@ -20,8 +20,9 @@ const Navbar = () => {
   return (
     <div className="fixed w-full h-16 shadow-xl bg-[#161b22] text-white tracking-wide mb-0  z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
-        <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-[#c9d1d9]">
-          MUMBAI
+      <img src={Logo} className="flex flex-wrap w-14 h-14" />
+        <h1 className="flex flex-wrap px-7 text-2xl sm:text-2xl md:text-2xl cursor-pointer pl-0 font-bold text-[#c9d1d9]">
+           BOMBAY BULLETIN
         </h1>
         <div>
           <ul className="hidden md:flex ">
