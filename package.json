@@ -17,6 +17,7 @@
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-fontawesome": "^1.7.1",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.9.0",
     "react-just-parallax": "^3.1.16",
     "react-jwt": "^1.1.8",

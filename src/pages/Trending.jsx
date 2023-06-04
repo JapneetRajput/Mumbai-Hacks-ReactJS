@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import Navbar from "../components/Navbar";
-import Carousel from "../components/Carousel";
-import Services from "../components/Services";
-import Footer from "../components/Footer";
-import { profileUser } from "../api/service";
 import Axios from "axios";
-import Chatbot from "../components/Chatbot";
+import { useNavigate } from "react-router";
+import { profileUser } from "../api/service";
 
-
-const Home = () => {
+const Trending = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
   const profileInit = () => {
@@ -18,12 +12,12 @@ const Home = () => {
       if (req.data.status !== "failed") {
         console.log(req.data);
       } else {
-        navigate("/");
+        navigate("/home");
       }
     });
   };
 
-  const [posts, setPosts] = useState();
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -36,22 +30,10 @@ const Home = () => {
         setPosts(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
     profileInit();
   }, []);
-  return (
-    <>
-      <Navbar />
-      <div className="pt-24 bg-[#0D1117]">
-        <Chatbot/>
-        <Carousel />
-        <Services />
-        <Footer />
-      </div>
-    </>
-  );
+
+  return <div>Trending</div>;
 };
 
-export default Home;
+export default Trending;
