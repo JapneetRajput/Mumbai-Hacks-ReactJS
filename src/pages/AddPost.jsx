@@ -93,7 +93,7 @@ const AddPost = () => {
     // reader.onload = async () => {
     //   const fileData = new Uint8Array(reader.result); // Get the file data as Uint8Array
     //   console.log(fileData);
-    //   let token = localStorage.getItem("token");
+    let token = localStorage.getItem("token");
     const formData = new FormData();
     formData.append("post", selectedFile);
     formData.append("title", title);
@@ -158,12 +158,14 @@ const AddPost = () => {
 
     Axios.get(
       `${api_endpoint}lat=${position.lat}&lon=${position.lng}&limit=1&appid=${API_KEY}`
-    ).then((res) => {
-      console.log(res.data);
-      setCity(res.data[0].name);
-      setState(res.data[0].state);
-      setCountry(res.data[0].country);
-    });
+    )
+      .then((res) => {
+        console.log(res.data);
+        setCity(res.data[0].name);
+        setState(res.data[0].state);
+        setCountry(res.data[0].country);
+      })
+      .catch((err) => console.log(err));
   }, [position]);
 
   useEffect(() => {
