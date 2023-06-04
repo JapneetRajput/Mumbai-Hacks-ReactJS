@@ -28,12 +28,14 @@ const Privateroute = () => {
 
 const LocationContext = createContext();
 function App() {
-  const [location, setLocation] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        setLocation({ latitude, longitude });
+        setLatitude(latitude);
+        setLongitude(longitude)
       },
       (error) => {
         console.error("Error getting location:", error);
@@ -42,7 +44,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <LocationContext.Provider value={location}>
+      <LocationContext.Provider latitude={latitude} longitude={longitude}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
