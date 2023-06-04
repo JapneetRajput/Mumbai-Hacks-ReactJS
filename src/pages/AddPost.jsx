@@ -22,7 +22,7 @@ import Axios from "axios";
 import { FaLocationArrow, FaEdit } from "react-icons/fa";
 
 const API_KEY = "e9d8379d202a0ab45e4395390d3e5fa2";
-const api_endpoint = `http://api.openweathermap.org/geo/1.0/reverse?`;
+const api_endpoint = `https://api.openweathermap.org/geo/1.0/reverse?`;
 
 const markerIcon = new L.Icon({
   iconUrl: require("../assets/markerIcon.png"),
