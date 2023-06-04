@@ -42,7 +42,7 @@ export default function Carousel() {
           </div>
           <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
-            The city where local news are produced each day in every neighbourhood
+            Mumbai, the financial and entertainment capital of India, is a vibrant and bustling city that never fails to leave a lasting impression on its residents and visitors. Situated on the west coast of India, Mumbai is known for its iconic landmarks, diverse culture, and a spirit that never sleeps.
             </p>
           </div>
         </SwiperSlide>
@@ -55,7 +55,7 @@ export default function Carousel() {
           </div>
           <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
-            वह शहर जहां हर दिन हर मोहल्ले में स्थानीय समाचार बनते हैं
+            Mumbai is a melting pot of cultures, welcoming people from all corners of India and the world. Its cosmopolitan vibe is reflected in its diverse cuisine, which ranges from mouth-watering street food like vada pav and pav bhaji to high-end restaurants offering global culinary delights. 
             </p>
           </div>
         </SwiperSlide>
@@ -68,7 +68,7 @@ export default function Carousel() {
           </div>
           <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
-            शहर जेथे प्रत्येक शेजारच्या प्रत्येक दिवशी स्थानिक बातम्या तयार केल्या जातात
+            While Mumbai is a city of dreams and opportunities, it also faces challenges like any other metropolis. Traffic congestion, overcrowding, and monsoon-related issues are some of the hurdles that Mumbaikars navigate on a daily basis. However, the indomitable spirit of its residents, known as "Mumbaikars," shines through as they face these challenges with resilience and a sense of community.
             </p>
           </div>
         </SwiperSlide>
