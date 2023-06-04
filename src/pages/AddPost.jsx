@@ -15,7 +15,7 @@ import Navbar from "../components/Navbar";
 import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
-import {TbConfetti} from "react-icons/tb"
+import { TbConfetti } from "react-icons/tb";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
@@ -82,7 +82,6 @@ const AddPost = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [showModal, setShowModal] = React.useState(false);
 
-
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -90,7 +89,11 @@ const AddPost = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    let token = localStorage.getItem("token");
+    // const reader = new FileReader();
+    // reader.onload = async () => {
+    //   const fileData = new Uint8Array(reader.result); // Get the file data as Uint8Array
+    //   console.log(fileData);
+    //   let token = localStorage.getItem("token");
     const formData = new FormData();
     formData.append("post", selectedFile);
     formData.append("title", title);
@@ -111,7 +114,7 @@ const AddPost = () => {
     const config = {
       headers: {
         authorization: token,
-        "Content-Type": "multipart/form-data", // Set the content type to multipart/form-data
+        "Content-Type": "application/multipart/form-data",
       },
     };
     Axios.post(
@@ -121,8 +124,12 @@ const AddPost = () => {
     )
       .then((res) => {
         // setshowloader(false)
+        console.log("Image uploaded successfully:", res.data.imageUrl);
       })
       .catch((err) => console.log(err));
+    // };
+
+    // reader.readAsArrayBuffer(selectedFile);
   };
 
   const [center, setCenter] = useState({
@@ -277,53 +284,52 @@ const AddPost = () => {
           </div>
           <button
             className=" shadow-none text-[#d7dfe7] bg-[#1f7e30] hover:bg-[#2ea043] font-bold py-2 px-4  rounded-md h-14 w-48 my-4 "
-            type="submit" onClick={() => setShowModal(true)}
+            type="submit"
+            onClick={() => setShowModal(true)}
           >
             <div style={{ display: "flex", justifyContent: "center" }}>
               <FaEdit size={25} /> &nbsp; Create a Post
             </div>
           </button>
-          
-      {showModal ? (
-        <>
-          <div
-            className=" justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative md:w-80 my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-[#161b22] border-2 rounded-lg relative flex flex-col w-full bg-[#0D1117] ">
-                {/*header*/}
-                <div className="flex items-center justify-center  h-16 p-2 border-b border-solid border-[#d7dfe7] rounded-t">
-                  <h3 className="text-2xl uppercase text-[#d7dfe7] font-semibold">
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-              <TbConfetti size={25} /> &nbsp; Congratulations
-            </div>
-                  </h3>
-                  
-                </div>
-                {/*body*/}
-                <div className="relative flex-auto">
-                  <p className="my-4 text-[#d7dfe7] text-lg leading-relaxed font-semibold">
-                    Post Created Successfully!
-                  </p>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-center p-6 ">
-                  <button
-                    className="shadow-none text-[#d7dfe7] bg-[#1f7e30] hover:bg-[#2ea043] font-bold py-2 px-2  rounded-md h-10 w-32  ease-linear transition-all duration-500"
-                    type="button"
-                    onClick={() => navigate("/posts")}
-                  >
-                    Close
-                  </button>
-                  
+
+          {showModal ? (
+            <>
+              <div className=" justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative md:w-80 my-6 mx-auto max-w-3xl">
+                  {/*content*/}
+                  <div className="border-[#161b22] border-2 rounded-lg relative flex flex-col w-full bg-[#0D1117] ">
+                    {/*header*/}
+                    <div className="flex items-center justify-center  h-16 p-2 border-b border-solid border-[#d7dfe7] rounded-t">
+                      <h3 className="text-2xl uppercase text-[#d7dfe7] font-semibold">
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <TbConfetti size={25} /> &nbsp; Congratulations
+                        </div>
+                      </h3>
+                    </div>
+                    {/*body*/}
+                    <div className="relative flex-auto">
+                      <p className="my-4 text-[#d7dfe7] text-lg leading-relaxed font-semibold">
+                        Post Created Successfully!
+                      </p>
+                    </div>
+                    {/*footer*/}
+                    <div className="flex items-center justify-center p-6 ">
+                      <button
+                        className="shadow-none text-[#d7dfe7] bg-[#1f7e30] hover:bg-[#2ea043] font-bold py-2 px-2  rounded-md h-10 w-32  ease-linear transition-all duration-500"
+                        type="button"
+                        onClick={() => navigate("/posts")}
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="opacity-90 fixed inset-0 z-40 bg-gray-700"></div>
-        </>
-      ) : null}
+              <div className="opacity-90 fixed inset-0 z-40 bg-gray-700"></div>
+            </>
+          ) : null}
         </form>
         <Footer />
       </div>
