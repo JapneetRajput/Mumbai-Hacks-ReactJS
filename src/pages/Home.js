@@ -17,6 +17,7 @@ const Home = () => {
   const [lati, setLati] = useState();
   const [long, setLong] = useState();
   const [distances, setDistances] = useState([]);
+  const [distance, setDistance] = useState(0);
   let api_key = process.env.REACT_APP_REVGEO_API;
   const profileInit = () => {
     profileUser(token).then((req, res) => {
@@ -92,7 +93,6 @@ const Home = () => {
   useEffect(() => {
     console.log(posts);
   }, [posts])
-  
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -105,14 +105,20 @@ const Home = () => {
         setPosts(res.data);
       })
       .catch((err) => console.log(err));
-      profileInit();
-      
   }, []);
+useEffect(()=>{
+  profileInit();
+}, []);
 
   useEffect(() => {
     calculateRadius();
     getLocation();
   }, [lati, long]);
+
+  useEffect(() => {
+    // window.location.reload();
+    console.log("middle");
+  }, [distance])
 
   return (
     <>
@@ -120,8 +126,6 @@ const Home = () => {
       <div className="pt-24 bg-[#0D1117]">
         <Chatbot/>
         <Carousel />
-        <Services />
-        <Slider/>
         <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts && 
             posts.map((post) => (
@@ -192,6 +196,8 @@ const Home = () => {
               </div>
             ))}
         </div>
+        <Services />
+        {/* <Slider distance={distance} setDistance={setDistance}/> */}
         <Footer />
       </div>
     </>

@@ -101,7 +101,7 @@ const Blogs = () => {
       <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
         <button
           className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
-          onClick={() => navigate("/addPost")}
+          onClick={() => navigate("/blogs/add")}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
             <AiFillPlusCircle className="w-6 h-6 sm:w-6 sm:h-6 " /> &nbsp;

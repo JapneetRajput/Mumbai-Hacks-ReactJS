@@ -14,7 +14,7 @@ import {
   getPostsByCities,
   getPostsByCountries,
   getPostsByStates,
-  //profileUser,
+  profileUser,
 } from "../api/service";
 import { AiFillPlusCircle } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
@@ -34,12 +34,20 @@ const Posts = () => {
       console.log(req.data);
       if (req.data.status !== "failed") {
         console.log(req.data);
+        setName(req.data.userValidation.name);
+        setEmail(req.data.userValidation.email);
+        setMobile(req.data.userValidation.mobile);
+        setId(req.data.userValidation._id);
       } else {
         navigate("/");
       }
     });
   };
 
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [userid, setId] = useState("");
   const [posts, setPosts] = useState([]);
   const [fixedPosts, setFixedPosts] = useState([]);
   const [liked, setLiked] = useState(false);
