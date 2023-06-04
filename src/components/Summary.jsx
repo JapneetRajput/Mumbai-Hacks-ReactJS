@@ -25,7 +25,7 @@ const Summary = () => {
 
   useEffect(() => {
     getPosts().then((req, res) => {
-      console.log(req.data);
+      //console.log(req.data);
       let aidata = "";
       let count = 1;
       req.data.map(({ description }) => {
@@ -33,7 +33,7 @@ const Summary = () => {
         count++;
       });
       setNews(aidata);
-      console.log(aidata);
+      //console.log(aidata);
     });
   }, []);
 
@@ -63,7 +63,7 @@ const Summary = () => {
       const data = await response.json();
       const reply = data.choices[0].message;
 
-      console.log(reply.content);
+      //console.log(reply.content);
 
       // Add bot response to the chat history
       setMessages((prevMessages) => [
