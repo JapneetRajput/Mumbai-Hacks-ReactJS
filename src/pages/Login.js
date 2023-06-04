@@ -22,7 +22,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 //     "google_translate_element"
 //   );
 // };
-
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -88,7 +87,7 @@ const Login = () => {
       <div className="flex mt-16 md:mt-12 ">
         {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
         <h1 className="text-4xl sm:text-2xl md:text-4xl cursor-pointer pl-0 font-bold bg-clip-text text-[#c9d1d9]">
-          MUMBAI
+          Bombay Bulletin
         </h1>
       </div>
       {invalidflag && (
@@ -144,23 +143,23 @@ const Login = () => {
         </button>
 
         <h1 className="text-[#d7dfe7] text-sm text-left mx-1">
-          By continuing, you agree to Mumbai privacy notice and conditions of
+          By continuing, you agree to Bombay Bulletin's privacy notice and conditions of
           use.
         </h1>
       </form>
-      <div className="mt-8 text-xs md:text-sm sm:w-1/2 lg:w-1/3 flex items-center w-full md:px-1 px-9">
+      <div className="mt-8 text-xs md:text-sm sm:w-1/2 lg:w-full flex items-center w-full md:px-1 px-9">
         <hr className="border-t w-full border-[#d7dfe7] flex-grow" />
-        <span className=" text-[#d7dfe7] w-full">New to Mumbai?</span>
+        <span className=" text-[#d7dfe7] w-full">New to Bombay Bulletin?</span>
         <hr className="border-t w-full border-[#d7dfe7] flex-grow" />
       </div>
       <button
         onClick={() => navigate("/register")}
-        className=" shadow-none w-72 text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
+        className=" shadow-none w-82 text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
       >
-        Create your Mumbai account
+        Create your Bombay Bulletin account
       </button>
       <div className=" bottom-0  bg-gray-500 bg-opacity-20 backdrop-filter backdrop-blur-lg flex flex-col items-center w-full h-10 pt-2">
-        <span className="text-white">Mumbai | All rights reserved</span>
+        <span className="text-white">Bombay Bulletin | All rights reserved</span>
       </div>
     </div>
   );

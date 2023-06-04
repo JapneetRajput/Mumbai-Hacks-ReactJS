@@ -116,6 +116,7 @@ const Home = () => {
 
   return (
     <>
+    
       <Navbar />
       <div className="pt-24 bg-[#0D1117]">
         <Chatbot/>
