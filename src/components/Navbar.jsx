@@ -36,7 +36,7 @@ const Navbar = () => {
             </a>
             <a href="/posts" className="hover:text-[#babbbd]">
               <li className="font-semibold ml-10 text-md cursor-pointer">
-                Posts
+                News
               </li>
             </a>
             <a href="/blogs" className="hover:text-[#babbbd]">
@@ -49,11 +49,7 @@ const Navbar = () => {
                 Maps
               </li>
             </a>
-            <a href="/chat" className="hover:text-[#babbbd]">
-              <li className="font-semibold ml-10 text-md cursor-pointer">
-                Chat
-              </li>
-            </a>
+            
             <a href="/profile" className="hover:text-[#babbbd]">
               <li className="font-semibold ml-10 text-md cursor-pointer">
                 Profile
@@ -107,12 +103,12 @@ const Navbar = () => {
               </a>
               <a href="/posts">
                 <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
-                  Posts
+                  News
                 </li>
               </a>
-              <a href="/">
+              <a href="/blogs">
                 <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
-                  Skills
+                  Blogs
                 </li>
               </a>
               <a href="/maps">
