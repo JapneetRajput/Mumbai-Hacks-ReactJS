@@ -64,7 +64,7 @@ const Login = () => {
 
   useEffect(() => {
     if (auth) {
-      navigate("/profile");
+      navigate("/home");
     } else {
       setUserAuth(false);
     }
