@@ -10,7 +10,7 @@ import {
   getPostsByCities,
   getPostsByCountries,
   getPostsByStates,
-  profileUser,
+  //profileUser,
 } from "../api/service";
 import { AiFillPlusCircle } from "react-icons/ai";
 import toast, { Toaster } from 'react-hot-toast';
