@@ -42,13 +42,7 @@ export default function Carousel() {
           </div>
           <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+            The city where local news are produced each day in every neighbourhood
             </p>
           </div>
         </SwiperSlide>
@@ -61,13 +55,7 @@ export default function Carousel() {
           </div>
           <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+            वह शहर जहां हर दिन हर मोहल्ले में स्थानीय समाचार बनते हैं
             </p>
           </div>
         </SwiperSlide>
@@ -76,17 +64,11 @@ export default function Carousel() {
           मुंबई
           </div>
           <div className="subtitle text-[#c9d1d9]" data-swiper-parallax="-200">
-            CAPITAL CITY OF MAHARASHTRA
+          महाराष्ट्राची राजधानी
           </div>
           <div className="text bg-[#161b22] bg-opacity-40 backdrop-filter backdrop-blur-lg text-[#c9d1d9] rounded-lg" data-swiper-parallax="-100">
             <p className="p-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+            शहर जेथे प्रत्येक शेजारच्या प्रत्येक दिवशी स्थानिक बातम्या तयार केल्या जातात
             </p>
           </div>
         </SwiperSlide>
