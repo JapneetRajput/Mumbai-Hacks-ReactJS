@@ -14,6 +14,7 @@ import {
   getPostsByCities,
   getPostsByCountries,
   getPostsByStates,
+  profileUser,
 } from "../api/service";
 import { AiFillPlusCircle } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
