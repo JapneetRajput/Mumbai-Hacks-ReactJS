@@ -80,8 +80,8 @@ const Navbar = () => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <h1 className="text-4xl font-bold bg-clip-text text-white">
-                Mumbai
+              <h1 className="text-xl font-bold bg-clip-text text-white">
+              BOMBAY BULLETIN
               </h1>
               <div
                 onClick={handleNav}
