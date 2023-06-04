@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import { profileUser } from "../api/service";
 import Axios from "axios";
 import Chatbot from "../components/Chatbot";
+import Slider from "../components/slider";
 
 
 const Home = () => {
@@ -120,6 +121,7 @@ const Home = () => {
         <Chatbot/>
         <Carousel />
         <Services />
+        <Slider/>
         <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
           {posts && 
             posts.map((post) => (
