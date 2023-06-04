@@ -3,6 +3,7 @@ import BB from "../images/BB.png";
 import PL from "../images/PL.png";
 import { useNavigate } from "react-router";
 import Summary from "../components/Summary"
+import Slider from "../components/slider"
 
 export default function Services() {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ export default function Services() {
           </div>
         </div>
         <Summary/>
+
         <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex mb-12 mt-12">
           <img
             src={PL}
