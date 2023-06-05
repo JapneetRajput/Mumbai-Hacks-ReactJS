@@ -12,7 +12,7 @@ export default function Services() {
         <Summary/>
 
         <div class="p-20 bg-[#010409] Z-0">
-        <h3 class="text-white font-bold mb-4 text-3xl">SERVICES</h3>
+        <h3 class="text-white font-bold mb-4 text-3xl"></h3>
         
         <div class="bg-[#0D1117] border-[#161b22] border-2 rounded-lg shadow-2xl md:flex">
           <img
@@ -25,7 +25,7 @@ export default function Services() {
               Bombay Ballot
             </h2>
             <p class="text-white">
-              Get Location specific news
+            The Bombay Ballot is not just a process of casting votes. It sets the stage for a deeper exploration of the local news, its significance, and the impact it has on the residents and development of Mumbai.
               
             </p>
             <button
