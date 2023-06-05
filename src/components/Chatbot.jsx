@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 // import "../styles/chat.css";
 import { BsFillChatLeftDotsFill, BsRobot } from "react-icons/bs";
-import {TbConfetti} from "react-icons/tb"
-
+import { TbConfetti } from "react-icons/tb";
 
 const Chatbot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -68,19 +67,17 @@ const Chatbot = () => {
   // const closeChat = () => {
   //   setIsChatOpen(false);
   // };
-  
 
   return (
-    <div className="chatbot" style={{"background-color": "rgb(0 0 0 / 75%)"}}>
+    <div className="chatbot" style={{ "background-color": "rgb(0 0 0 / 75%)" }}>
       <button
-          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] text-lg  font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-16 my-4 w-40"
-          onClick={() => setShowModal(true)}
-        >
-          <div style={{ display: "flex", justifyContent: "center" }}>
-          <BsRobot size={35}/> &nbsp; Chat
-            
-          </div>
-        </button>
+        className="fixed right-6 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] text-lg  font-bold py-2 px-2 hover:bg-[#2ea043] rounded-xl h-16 my-4 w-24"
+        onClick={() => setShowModal(true)}
+      >
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <BsRobot size={35} /> &nbsp;
+        </div>
+      </button>
       {/* <Modal
         isOpen={isChatOpen}
         onRequestClose={closeChat}
@@ -115,61 +112,57 @@ const Chatbot = () => {
       </Modal> */}
       {showModal ? (
         <>
-          <div
-            className=" justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
+          <div className=" justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className=" md:w-96 my-6 mx-auto max-w-3xl fixed">
               {/*content*/}
               <div className="border-[#161b22] border-2 rounded-lg relative flex flex-col w-full bg-[#0D1117] ">
                 {/*header*/}
                 <div className="flex items-center justify-center  h-16 p-2 border-b border-solid border-[#d7dfe7] rounded-t">
                   <h3 className="text-xl uppercase text-[#d7dfe7] font-semibold">
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-              <BsRobot size={25} /> &nbsp; Chat With Dhruv
-            </div>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <BsRobot size={25} /> &nbsp; Chat With Dhruv
+                    </div>
                   </h3>
-                  
                 </div>
                 {/*body*/}
                 <div className="relative flex-wrap">
-                <div ref={chatBodyRef} className="text-white p-10 min-h-[200px] max-h-[500px] overflow-y-auto">
-            {messages.map((message, index) => (
-              <div key={index} className={`message ${message.sender}`}>
-                {message.content}
-              </div>
-            ))}
-          </div>
+                  <div
+                    ref={chatBodyRef}
+                    className="text-white p-10 min-h-[200px] max-h-[500px] overflow-y-auto"
+                  >
+                    {messages.map((message, index) => (
+                      <div key={index} className={`message ${message.sender}`}>
+                        {message.content}
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="chat-footer">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Type your message..."
-                className="bg-[#0D1117] border-[#d7dfe7] border-3 text-white"
-              />
-              
-            </form>
-          </div>
+                  <form onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      placeholder="Type your message..."
+                      className="bg-[#0D1117] border-[#d7dfe7] border-3 text-white"
+                    />
+                  </form>
+                </div>
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6 ">
                   <button
                     className="shadow-none text-[#d7dfe7] bg-[#1f7e30] hover:bg-[#2ea043] font-bold py-2 px-2 m-2 rounded-md h-10 w-28  ease-linear transition-all duration-500"
                     type="submit"
-                    
                   >
                     Send
                   </button>
-                  
+
                   <button
                     className="shadow-none text-[#d7dfe7] bg-[#7e1f1f] hover:bg-[#a02e2e] font-bold py-2 px-2  rounded-md h-10 w-28  ease-linear transition-all duration-500"
                     onClick={() => setShowModal(false)}
-                    
                   >
                     Close
                   </button>
-                  
                 </div>
               </div>
             </div>

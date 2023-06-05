@@ -4,10 +4,11 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AuthContext } from "../context/UserContext";
 import Logo from "../assets/lOGO.gif";
+import { useNavigate } from "react-router";
 const Navbar = () => {
   let token = localStorage.getItem("token");
   const { userAuth, setUserAuth } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
@@ -20,9 +21,12 @@ const Navbar = () => {
   return (
     <div className="fixed w-full h-16 shadow-xl bg-[#161b22] text-white tracking-wide mb-0  z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
-        <div className="flex flex-row">
+        <div
+          className="flex flex-row cursor-pointer"
+          onClick={() => navigate("/home")}
+        >
           <img alt="BB" src={Logo} className="w-12 h-12 inline" />
-          <h1 className="flex flex-col items-center mt-2 ml-2 text-2xl sm:text-2xl md:text-2xl cursor-pointer pl-0 font-bold text-[#c9d1d9]">
+          <h1 className="flex flex-col items-center mt-2 ml-2 text-2xl sm:text-2xl md:text-2xl pl-0 font-bold text-[#c9d1d9]">
             BOMBAY BULLETIN
           </h1>
         </div>
@@ -81,7 +85,7 @@ const Navbar = () => {
           <div>
             <div className="flex w-full items-center justify-between">
               <h1 className="text-xl font-bold bg-clip-text text-white">
-              BOMBAY BULLETIN
+                BOMBAY BULLETIN
               </h1>
               <div
                 onClick={handleNav}

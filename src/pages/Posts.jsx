@@ -396,13 +396,13 @@ const Posts = () => {
                         handleLike(post._id);
                         notifysuccess();
                       }}
-                      className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 mr-4  hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
+                      className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 pl-4 mr-4 hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
                     >
-                      <div
-                        style={{ display: "flex", justifyContent: "center" }}
-                      >
+                    <div
+                      style={{ display: "flex", width:"30px", justifyContent: "space-between" }}
+                    >
                         {post.likes.length}
-                        <FaRegThumbsUp size={25} />
+                        <FaRegThumbsUp size={25} className="ml-1"/>
                       </div>
                     </button>
 
@@ -412,13 +412,13 @@ const Posts = () => {
                         handleDislike(post._id);
                         notifyerror();
                       }}
-                      className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 px-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
+                      className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 pl-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
                     >
                       <div
-                        style={{ display: "flex", justifyContent: "center" }}
+                        style={{ display: "flex", width:"30px", justifyContent: "space-between" }}
                       >
-                        {post.dislikes.length}
-                        <FaRegThumbsDown size={25} />
+                        <span>{post.dislikes.length}</span>
+                        <FaRegThumbsDown size={25} className="ml-1"/>
                       </div>
                     </button>
                   </div>

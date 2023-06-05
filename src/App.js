@@ -35,7 +35,7 @@ function App() {
       (position) => {
         const { latitude, longitude } = position.coords;
         setLatitude(latitude);
-        setLongitude(longitude)
+        setLongitude(longitude);
       },
       (error) => {
         console.error("Error getting location:", error);
