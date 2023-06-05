@@ -89,15 +89,16 @@ const Summary = () => {
 
   return (
     <>
+    
       <div className=" justify-center  items-center position-relative outline-none focus:outline-none">
         <div className="  my-6 mx-auto max-w-7xl ">
           {/*content*/}
-          <div className="border-[#161b22] border-2 rounded-lg relative flex flex-col w-full bg-[#0D1117] ">
+          <div className=" border-[#161b22] border-2 rounded-lg relative flex flex-col w-full bg-[#0D1117] ">
             {/*header*/}
-            <div className="flex items-center justify-center  h-16 p-2 border-b border-solid border-[#d7dfe7] rounded-t">
-              <h3 className="text-xl uppercase text-[#d7dfe7] font-semibold">
+            <div className="animate-border bg-gradient-to-r from-[#c42525]   to-[#1b4a8d] bg-[length:400%_400%] flex items-center justify-center  h-16 p-2 border-b border-solid border-[#d7dfe7] rounded-t">
+              <h3 className="text-2xl uppercase text-[#d7dfe7] font-semibold">
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  &nbsp; NEWS SUMMARY
+                  NEWS HEADLINES
                 </div>
               </h3>
             </div>
