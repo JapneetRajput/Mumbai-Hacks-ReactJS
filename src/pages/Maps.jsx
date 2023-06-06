@@ -26,7 +26,7 @@ const api_endpoint = `http://api.openweathermap.org/geo/1.0/reverse?`;
 
 const markerIcon = new L.Icon({
   iconUrl: require("../assets/markerIcon.png"),
-  iconSize: [40, 35],
+  iconSize: [40, 45],
   iconAnchor: [17, 46], //[left/right, top/bottom]
   popupAnchor: [0, -46], //[left/right, top/bottom]
 });
@@ -89,7 +89,13 @@ const Maps = () => {
                     key={idx}
                   >
                     <Popup>
-                      {post.title}
+                      <button className="shadow-none w-full  text-[#d7dfe7] bg-[#1f7e30] font-bold hover:bg-[#2ea043] rounded-md  h-full ">
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          {post.title}
+                        </div>
+                      </button>
                       <br />
                       {post.city}, {post.country}
                     </Popup>
