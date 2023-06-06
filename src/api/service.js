@@ -13,7 +13,7 @@ const config = {
 export const registerUser = async (user) => {
   try {
     // Return the response
-    return await Axios.post(apiUrl + "/api/users/register", user, config);
+    return await Axios.post(apiUrl + "/api/users/register", user);
   } catch (error) {
     throw new Error("Server Error");
   }
@@ -23,7 +23,7 @@ export const registerUser = async (user) => {
 export const loginUser = async (user) => {
   try {
     // Return the response
-    return await Axios.post(apiUrl + "/api/users/login", user, config);
+    return await Axios.post(apiUrl + "/api/users/login", user);
   } catch (error) {
     throw new Error("Server Error");
   }
