@@ -26,45 +26,28 @@ const Privateroute = () => {
   return <>{userAuth || auth ? <Outlet /> : <Navigate replace to={"/"} />}</>;
 };
 
-const LocationContext = createContext();
 function App() {
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        setLatitude(latitude);
-        setLongitude(longitude);
-      },
-      (error) => {
-        console.error("Error getting location:", error);
-      }
-    );
-  }, []);
   return (
     <div className="App">
-      <LocationContext.Provider latitude={latitude} longitude={longitude}>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route element={<Privateroute />}>
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/maps" element={<Maps />} />
-            <Route path="/posts" element={<Posts />} />
-            <Route path="/trending" element={<Trending />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/posts/:id" element={<SpecificProfile />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/blogs/add" element={<Addblogs />} />
-            <Route path="/blogs/edit" element={<Editblogs />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/addPost" element={<AddPost />} />
-          </Route>
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </LocationContext.Provider>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route element={<Privateroute />}>
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/maps" element={<Maps />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/trending" element={<Trending />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/posts/:id" element={<SpecificProfile />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/add" element={<Addblogs />} />
+          <Route path="/blogs/edit" element={<Editblogs />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/addPost" element={<AddPost />} />
+        </Route>
+        <Route path="*" element={<Error404 />} />
+      </Routes>
     </div>
   );
 }
