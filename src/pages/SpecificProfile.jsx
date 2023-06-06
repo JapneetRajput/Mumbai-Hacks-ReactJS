@@ -76,8 +76,11 @@ const SpecificProfile = () => {
           <h1 className="text-2xl font-bold text-center mb-3 text-white uppercase">
             Title : <span className="text-[#2e49a0]">{title}</span> 
           </h1>
-          <h1 className=" font-semibold p-10 bg-[#0D1117] bg-opacity-70 backdrop-filter backdrop-blur-lg text-[#c9d1d9]">
+          <div className=" font-semibold  bg-[#0D1117]  text-[#c9d1d9]">
+            <h1 className="place-content-center p-4">
             Description : {description} <br/> 
+            </h1>
+           
             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2ea043] border-2 rounded-xl w-52 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
@@ -124,7 +127,7 @@ const SpecificProfile = () => {
               </div>
             </button>
              <br />
-             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-96 h-24 my-4">
+             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4  hover:border-[#2e49a0] border-2 rounded-xl w-96 h-24 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
                 <MdTimer size={25} /> &nbsp;
@@ -132,7 +135,7 @@ const SpecificProfile = () => {
               </div>
             </button>
             
-          </h1>
+          </div>
         </div>
       </div>
       <Footer/>
