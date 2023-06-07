@@ -16,6 +16,7 @@ import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
 import { TbConfetti } from "react-icons/tb";
+import { BiCurrentLocation } from "react-icons/bi";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
@@ -58,7 +59,11 @@ function LocationMarker({ position, setPosition, marker, setMarker }) {
 
   return position === null ? null : (
     <Marker position={position} icon={markerIcon}>
-      <Popup>You are here</Popup>
+      <Popup>
+        <div style={{ display: "flex", margin: 0, justifyContent: "center" }}>
+          <BiCurrentLocation size={16} /> You Are Here
+        </div>
+      </Popup>
     </Marker>
   );
 }
@@ -142,7 +147,7 @@ const AddPost = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("Tech");
+  const [selectedCategory, setSelectedCategory] = useState("Choose Category");
 
   const addMarkerAtCurrentLocation = async () => {
     if (marker) {
@@ -230,6 +235,7 @@ const AddPost = () => {
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="block appearance-none w-full bg-[#0d1117] border-[#161b22] border-2 text-[#d7dfe7] py-3 px-3 md:px-4 pr-8 rounded-md leading-tight focus:outline-none "
             >
+              {/* <option value="Choose Category">Choose Category</option> */}
               <option value="Tech">Tech</option>
               <option value="Sports">Sports</option>
               <option value="Art">Art</option>

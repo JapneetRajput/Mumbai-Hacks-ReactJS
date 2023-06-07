@@ -100,7 +100,7 @@ const Blogs = () => {
       <Navbar />
       <div className="pt-24 bg-[#010409] flex flex-wrap justify-center ">
         <button
-          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4"
+          className="fixed right-5 bottom-0  shadow-none text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 px-4 hover:bg-[#2ea043] rounded-xl h-10 my-4 "
           onClick={() => navigate("/blogs/add")}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -111,7 +111,7 @@ const Blogs = () => {
         {blogs &&
           blogs.map(
             ({ _id, title, description, street, city, country, user_id }) => (
-              <div className="w-86 self-center pt-10 bg-[#0D1117] border-2 border-[#272e38]  rounded-lg shadow   cursor-pointer  mb-5 ml-2 mr-2 hover:-translate-y-1 hover:scale-90 hover:bg-[#212833] duration-300">
+              <div className="w-86 self-center pt-10 bg-[#0D1117] border-2 border-[#272e38]  rounded-lg shadow   cursor-pointer  mb-5 ml-2 mr-2 hover:-translate-y-1 hover:scale-90 hover:bg-[#212833] hover:z-0 duration-300">
                 <div
                   style={{
                     marginLeft: "5%",

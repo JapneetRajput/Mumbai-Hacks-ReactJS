@@ -73,8 +73,8 @@ const Maps = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen pt-24 bg-[#010409]">
-        <div className="w-full text-center z-0">
+      <div className="h-full pt-24 bg-[#010409]">
+        <div className="w-full text-center">
           <div className="flex flex-col items-center">
             <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
               <TileLayer
@@ -89,7 +89,9 @@ const Maps = () => {
                     key={idx}
                   >
                     <Popup>
-                      <button className="shadow-none w-full  text-[#d7dfe7] bg-[#1f7e30] font-bold hover:bg-[#2ea043] rounded-md  h-full ">
+                      <button className="shadow-none w-full  text-[#d7dfe7] bg-[#1f7e30] font-bold hover:bg-[#2ea043] rounded-md  h-full " onClick={() =>
+              navigate("/posts/" + post._id)
+            }>
                         <div
                           style={{ display: "flex", justifyContent: "center" }}
                         >
