@@ -77,9 +77,9 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center bg-[#0d1117] bg-cover">
+    <div className="flex flex-col items-center h-screen bg-[#0d1117] bg-cover">
       {loader && (
-        <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
+        <div className="z-10 absolute flex flex-row items-center justify-center h-screen w-full">
           <Loader />
         </div>
       )}
