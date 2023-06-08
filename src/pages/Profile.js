@@ -49,14 +49,13 @@ const Profile = () => {
     <div class="">
       <div class="px-7 mb-8">
         <h2 class="text-3xl font-bold text-white dark:text-gray-300">{name}</h2>
-        <p class="text-[#abacad] mt-2 text-lg dark:text-gray-400">{mobile}</p>
+        <p class="text-[#abacad] mt-2 text-xl dark:text-gray-400">{mobile}</p>
         <p class="mt-2 text-[#abacad] text-md dark:text-gray-300">
         ~ Bio Feature Coming Soon ~
-        {/* <div style={{ display: "flex", justifyContent: "center" }}>
-                <FaStar size={25} /> &nbsp;
-                Bio Feature Coming Soon
-              </div> */}
-              </p>
+        </p>
+        <p class="mt-2 text-[#abacad] text-md dark:text-gray-300">
+        Current Location: {}
+        </p>
         <button
           class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 shadow-none hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
           <div style={{ display: "flex", justifyContent: "center" }}>

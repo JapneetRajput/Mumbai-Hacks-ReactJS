@@ -9,6 +9,7 @@ import {
   FaRegThumbsDown,
   FaThumbsDown,
 } from "react-icons/fa";
+import {GrShareOption} from "react-icons/gr";
 import {
   getPostsByCategories,
   getPostsByCities,
@@ -18,6 +19,7 @@ import {
 } from "../api/service";
 import { AiFillPlusCircle } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
+import { RWebShare } from "react-web-share";
 
 function notifysuccess() {
   toast.success("Liked");
@@ -398,11 +400,15 @@ const Posts = () => {
                       }}
                       className="shadow-none  text-[#d7dfe7] bg-[#1f7e30] font-bold py-2 pl-4 mr-4 hover:bg-[#2ea043] rounded-xl w-16 h-10 my-4"
                     >
-                    <div
-                      style={{ display: "flex", width:"30px", justifyContent: "space-between" }}
-                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "30px",
+                          justifyContent: "space-between",
+                        }}
+                      >
                         {post.likes.length}
-                        <FaRegThumbsUp size={25} className="ml-1"/>
+                        <FaRegThumbsUp size={25} className="ml-1" />
                       </div>
                     </button>
 
@@ -415,12 +421,34 @@ const Posts = () => {
                       className="shadow-none  text-[#d7dfe7] bg-[#7e1f1f] font-bold py-2 pl-4 hover:bg-[#a02e2e] rounded-xl w-16 h-10 my-4"
                     >
                       <div
-                        style={{ display: "flex", width:"30px", justifyContent: "space-between" }}
+                        style={{
+                          display: "flex",
+                          width: "30px",
+                          justifyContent: "space-between",
+                        }}
                       >
                         <span>{post.dislikes.length}</span>
-                        <FaRegThumbsDown size={25} className="ml-1"/>
+                        <FaRegThumbsDown size={25} className="ml-1" />
                       </div>
                     </button>
+                    <RWebShare
+                      data={{
+                        text: "Share This News",
+                        url: "https://mumbai-hacks.vercel.app/posts/"+ post._id,
+                        title: post.title,
+                      }}
+                      onClick={() => console.log("News shared successfully!")}
+                    >
+                      <button
+                        className="shadow-none text-[#d7dfe7] bg-[#2f81e3] px-4 hover:bg-[#3c94ff] ml-4 rounded-xl h-10 w-16 ">
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <GrShareOption size={25} className="invert"/>
+                          {/* &nbsp;Share */}
+                        </div>
+                      </button>
+                    </RWebShare>
                   </div>
                 </div>
               </div>
