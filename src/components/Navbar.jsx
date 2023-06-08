@@ -1,7 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineMail, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FiMapPin } from "react-icons/fi";
+import { CgProfile } from "react-icons/cg";
+import { HiOutlineNewspaper } from "react-icons/hi";
+import { BiHome } from "react-icons/bi";
 import { AuthContext } from "../context/UserContext";
 import Logo from "../assets/lOGO.gif";
 import { useNavigate } from "react-router";
@@ -19,7 +22,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed w-full h-16 shadow-xl bg-[#161b22] text-white tracking-wide mb-0  z-50">
+    <div className="fixed w-full h-16 bg-[#161b22] text-white tracking-wide mb-0  z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
         <div
           className="flex flex-row cursor-pointer"
@@ -73,16 +76,67 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={nav ? "fixed left-0 top-0 w-full h-screen bg-gray/60" : ""}
+        className={nav ? "fixed left-0 top-0 w-full bg-gray/60" : ""}
       >
-        <div
+        {/* <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#161B22] py-10 px-6 ease-in duration-500"
+              ? "fixed  w-[75%] sm:w-[60%] md:w-[45%] ease-in duration-500"
               : "hidden"
           }
-        >
-          <div>
+        > */}
+          
+<div class={nav
+              ?"fixed m:w-[60%] md:w-[45%] ease-in duration-500 z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-[#161B22] border border-[#0D1117]  bottom-0 left-1/2 " : "hidden"}>
+    <div class="grid h-full max-w-lg grid-cols-5 mx-auto" >
+        <button data-tooltip-target="tooltip-home" type="button" class="shadow-none inline-flex flex-col items-center justify-center   hover:bg-gray-50  group border-1 border-[#0D1117]"
+        onClick={() => navigate("/home")}>
+            <svg class="w-6 h-6 mb-1 text-gray-500  group-hover:text-[#1f7e30] " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <BiHome size={20}/>
+            </svg>
+            <span class="sr-only">Home</span>
+        </button>
+        
+
+        <button data-tooltip-target="tooltip-wallet" type="button" class="border-1 border-[#0D1117]  shadow-none inline-flex flex-col items-center justify-center  hover:bg-gray-50 group" onClick={() => navigate("/posts")}>
+            <svg class="w-6 h-6 mb-1 text-gray-500  group-hover:text-[#1f7e30] " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <HiOutlineNewspaper size={20} />
+            </svg>
+            <span class="sr-only">News</span>
+        </button>
+        
+        
+        <div class="flex items-center justify-center shadow-none border-1 border-[#0D1117]">
+            <button data-tooltip-target="tooltip-new" type="button" class="shadow-none inline-flex items-center justify-center w-10 h-10 font-medium bg-[#0D1117]  hover:bg-[#0D1117] group " onClick="https://github.com/JapneetRajput/Mumbai-Hacks-ReactJS">
+            <img alt="BB" src={Logo} className="shadow-none w-10 h-10 inline" />
+                {/* <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <img alt="BB" src={Logo} className="w-12 h-12" />
+                </svg> */}
+                <span class="sr-only">New item</span>
+            </button>
+        </div>
+        
+        
+        <button data-tooltip-target="tooltip-settings" type="button" class="shadow-none inline-flex flex-col items-center justify-center  hover:bg-gray-50 group border-1 border-[#0D1117]" onClick={() => navigate("/maps")}>
+            <svg class="w-6 h-6 mb-1 text-gray-500  group-hover:text-[#1f7e30] " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <FiMapPin size={20}/>
+            </svg>
+            <span class="sr-only">Maps</span>
+        </button>
+       
+       
+        <button data-tooltip-target="tooltip-profile" type="button" class="shadow-none inline-flex flex-col items-center justify-center   hover:bg-gray-50 d group border-1 border-[#0D1117]" onClick={() => navigate("/profile")}>
+            <svg class="w-6 h-6 mb-1 text-gray-500  group-hover:text-[#1f7e30] " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <CgProfile size={20}/>
+            </svg>
+            <span class="sr-only">Profile</span>
+        </button>
+        
+        
+    </div>
+</div>
+
+          {/* <div>
             <div className="flex w-full items-center justify-between">
               <h1 className="text-xl font-bold bg-clip-text text-white">
                 BOMBAY BULLETIN
@@ -95,12 +149,9 @@ const Navbar = () => {
               </div>
             </div>
             <div className="border-gray-300 my-4">
-              {/* <p className="w-[100%] md:w-[90%] py-2">
-                Let's build something legendary
-              </p> */}
             </div>
-          </div>
-          <div className="mt-10">
+          </div> */}
+          {/* <div className="mt-10">
             <ul className="uppercase font-bold">
               <a href="/home">
                 <li className="py-4 text-md cursor-pointer hover:text-[#babbbd]">
@@ -161,10 +212,9 @@ const Navbar = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
-    </div>
   );
 };
 
