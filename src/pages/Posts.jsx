@@ -433,9 +433,9 @@ const Posts = () => {
                     </button>
                     <RWebShare
                       data={{
-                        text: "Share This News",
+                        text: post.title,
                         url: "https://mumbai-hacks.vercel.app/posts/"+ post._id,
-                        title: post.title,
+                        title: "News From Bombay Bulletin",
                       }}
                       onClick={() => console.log("News shared successfully!")}
                     >
