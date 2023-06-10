@@ -74,9 +74,9 @@ const SpecificProfile = () => {
           />
 
           <h1 className="text-2xl font-bold text-center mb-3 text-white uppercase">
-            Title : <span className="text-[#2e49a0]">{title}</span> 
+            Title : <span className="text-[#0A58C4]">{title}</span> 
           </h1>
-          <div className=" font-semibold  bg-[#0D1117]  text-[#c9d1d9]">
+          <div className=" font-medium  bg-[#0D1117]  text-[#c9d1d9]">
             <h1 className="place-content-center p-4">
             Description : {description} <br/> 
             </h1>
@@ -97,7 +97,7 @@ const SpecificProfile = () => {
             </button>
             
             <br />
-            <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
+            <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4 ml-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
                 <FaCity size={25} /> &nbsp;
@@ -112,7 +112,7 @@ const SpecificProfile = () => {
               </div>
             </button>
              <br />
-             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
+             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4 ml-4 hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
                 <FaFlag size={25} /> &nbsp;
@@ -128,10 +128,10 @@ const SpecificProfile = () => {
             </button>
              <br />
              <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4  hover:border-[#2e49a0] border-2 rounded-xl w-96 h-24 my-4">
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="text-sm" style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
                 <MdTimer size={25} /> &nbsp;
-                Created on : {created} <br />Last Updated on : {updated}
+                Created on : {created} <br />&nbsp; Last Updated on : {updated}
               </div>
             </button>
             
