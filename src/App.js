@@ -19,6 +19,7 @@ import Posts from "./pages/Posts";
 import Chat from "./pages/Chat";
 import Maps from "./pages/Maps";
 import Trending from "./pages/Trending";
+import About from "./pages/About";
 
 const Privateroute = () => {
   const auth = localStorage.getItem("token");
@@ -45,6 +46,7 @@ function App() {
           <Route path="/blogs/edit" element={<Editblogs />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/addPost" element={<AddPost />} />
+          <Route path="/about" element={<About />} />
         </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>

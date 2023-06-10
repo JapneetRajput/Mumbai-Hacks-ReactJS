@@ -38,7 +38,7 @@ export default function Footer() {
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
               <li>
                 <a
-                  href="#"
+                  href="/about"
                   className="mr-4 md:mr-6 text-[#2f81e3] hover:underline "
                 >
                   About
