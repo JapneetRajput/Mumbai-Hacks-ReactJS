@@ -16,14 +16,7 @@ import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
 import { TbConfetti } from "react-icons/tb";
-import {
-  BiCurrentLocation,
-  BiBold,
-  BiItalic,
-  BiStrikethrough,
-} from "react-icons/bi";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
+import { BiCurrentLocation, BiBold, BiItalic, BiStrikethrough } from "react-icons/bi";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
@@ -351,16 +344,6 @@ const AddPost = () => {
                 />
               </svg>
             </div>
-          </div>
-          <div className="relative inline-block sm:w-5/12 mb-4 w-3/4">
-            <Select
-              className="block appearance-none w-full bg-[#0d1117] border-[#161b22] border-2 text-[#0d1117] py-3 px-3 md:px-4 pr-8 rounded-md leading-tight focus:outline-none mt-2"
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
-              defaultValue={[options[0], options[1]]}
-              options={options}
-            />
           </div>
           <button
             type="button"
