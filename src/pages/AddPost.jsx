@@ -16,7 +16,14 @@ import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
 import { TbConfetti } from "react-icons/tb";
-import { BiCurrentLocation, BiBold, BiItalic, BiStrikethrough } from "react-icons/bi";
+import {
+  BiCurrentLocation,
+  BiBold,
+  BiItalic,
+  BiStrikethrough,
+} from "react-icons/bi";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
@@ -176,6 +183,15 @@ const AddPost = () => {
     profileInit();
   }, []);
 
+  const animatedComponents = makeAnimated();
+  const options = [
+    { value: "Tag 1", label: "Tag 1" },
+    { value: "Tag 2", label: "Tag 2" },
+    { value: "Tag 3", label: "Tag 3" },
+    { value: "Tag 4", label: "Tag 4" },
+    { value: "Tag 5", label: "Tag 5" },
+    { value: "Tag 6", label: "Tag 6" },
+  ];
   return (
     <>
       <Navbar />
@@ -204,99 +220,97 @@ const AddPost = () => {
             type="text"
           />
 
-              <div class="flex items-center justify-between px-3 py-2 border-b ">
-                <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x ">
-                  <div class="flex items-center space-x-1 sm:pr-4">
-                    <button
-                      type="button"
-                      class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
-                      
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <BiBold size={22}/>
-                      </svg>
-                      <span class="sr-only" >Bold</span>
-                    </button>
-                    <button
-                      type="button"
-                      class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <BiItalic size={22}/>
-                      </svg>
-                      <span class="sr-only">Italic</span>
-                    </button>
-                    
-                    <button
-                      type="button"
-                      class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <BiStrikethrough size={22}/>
-                      </svg>
-                      <span class="sr-only">Strikethrough</span>
-                    </button>
-                    <button
-                      type="button"
-                      class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <span class="sr-only">Emoji</span>
-                    </button>
-                  </div>
-                  
-                </div>
-                </div>
-                
+          <div class="flex items-center justify-between px-3 py-2 border-b ">
+            <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x ">
+              <div class="flex items-center space-x-1 sm:pr-4">
+                <button
+                  type="button"
+                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <BiBold size={22} />
+                  </svg>
+                  <span class="sr-only">Bold</span>
+                </button>
+                <button
+                  type="button"
+                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <BiItalic size={22} />
+                  </svg>
+                  <span class="sr-only">Italic</span>
+                </button>
 
-                <TextArea
-                  textInput="text-md text-[#c9d1d9]"
-                  textLabel="text-md text-white"
-                  width="w-full"
-                  height="h-36"
-                  hint="Description"
-                  backgroundColor="bg-[#0d1117]"
-                  position="left-2 md:left-3 top-2.5"
-                  border="border-[#161b22] border-2"
-                  span="px-1"
-                  input="px-3 md:px-4"
-                  div=" sm:w-5/12 mb-4 w-3/4"
-                  setState={setDescription}
-                  value={description}
-                  type="text"
-                />
+                <button
+                  type="button"
+                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <BiStrikethrough size={22} />
+                  </svg>
+                  <span class="sr-only">Strikethrough</span>
+                </button>
+                <button
+                  type="button"
+                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-[#1f7e30] hover:bg-gray-100 bg-[#161B22] shadow-none"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span class="sr-only">Emoji</span>
+                </button>
+              </div>
+            </div>
+          </div>
 
-          <label className="block mb-4 ">
+          <TextArea
+            textInput="text-md text-[#c9d1d9]"
+            textLabel="text-md text-white"
+            width="w-full"
+            height="h-36"
+            hint="Description"
+            backgroundColor="bg-[#0d1117]"
+            position="left-2 md:left-3 top-2.5"
+            border="border-[#161b22] border-2"
+            span="px-1"
+            input="px-3 md:px-4"
+            div=" sm:w-5/12 mb-4 w-3/4"
+            setState={setDescription}
+            value={description}
+            type="text"
+          />
+
+        <div className="relative inline-block sm:w-5/12 mb-4 w-3/4">
+        <label className="block appearance-none w-full bg-[#0d1117] border-[#161b22] border-2 text-[#0d1117] py-3 px-3 md:px-4 pr-8 rounded-md leading-tight focus:outline-none  ">
             <span className="text-[#d7dfe7] pl-11 font-semibold text-lg">
               Upload Image :{" "}
             </span>
@@ -306,11 +320,13 @@ const AddPost = () => {
               className="mt-1 w-3/5 font-semibold rounded-md border-[#161b22] border-2 text-[#d7dfe7] bg-[#0d1117]"
             />
           </label>
+        </div>
+        
           <div className="relative inline-block sm:w-5/12 mb-4 w-3/4">
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="block appearance-none w-full bg-[#0d1117] border-[#161b22] border-2 text-[#d7dfe7] py-3 px-3 md:px-4 pr-8 rounded-md leading-tight focus:outline-none "
+              className="block appearance-none w-full bg-[#0d1117] border-[#161b22] border-2 text-[#d7dfe7] py-3 px-3 md:px-4 pr-8 rounded-md leading-tight focus:outline-none"
             >
               {/* <option value="Choose Category">Choose Category</option> */}
               <option value="Tech">Tech</option>
@@ -335,6 +351,16 @@ const AddPost = () => {
                 />
               </svg>
             </div>
+          </div>
+          <div className="relative inline-block sm:w-5/12 mb-4 w-3/4">
+            <Select
+              className="block appearance-none w-full bg-[#0d1117] border-[#161b22] border-2 text-[#0d1117] py-3 px-3 md:px-4 pr-8 rounded-md leading-tight focus:outline-none mt-2"
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              isMulti
+              defaultValue={[options[0], options[1]]}
+              options={options}
+            />
           </div>
           <button
             type="button"

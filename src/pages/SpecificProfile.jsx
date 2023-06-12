@@ -6,10 +6,11 @@ import { getPost } from "../api/service";
 import { useNavigate } from "react-router";
 import { FaThumbsUp, FaThumbsDown, FaCity, FaFlag } from "react-icons/fa";
 import { MdCategory, MdTimer } from "react-icons/md";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import Chart from "chart.js/auto";
+import { Doughnut } from "react-chartjs-2";
 
 const SpecificProfile = () => {
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
@@ -62,6 +63,22 @@ const SpecificProfile = () => {
     postInit(id);
   }, []);
 
+  const labels = ["Likes", "Dislikes"];
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Count",
+        backgroundColor: [
+          '#43b258',
+          '#d63939'
+        ],
+        hoverOffset: 5,
+        data: [likes, dislikes],
+      },
+    ],
+  };
+
   return (
     <>
       <Navbar />
@@ -74,71 +91,67 @@ const SpecificProfile = () => {
           />
 
           <h1 className="text-2xl font-bold text-center mb-3 text-white uppercase">
-            Title : <span className="text-[#0A58C4]">{title}</span> 
+            Title : <span className="text-[#0A58C4]">{title}</span>
           </h1>
           <div className=" font-medium  bg-[#0D1117]  text-[#c9d1d9]">
             <h1 className="place-content-center p-4">
-            Description : {description} <br/> 
+              Description : {description} <br />
             </h1>
-           
-            <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2ea043] border-2 rounded-xl w-52 h-14 my-4">
+
+            {/* <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2ea043] border-2 rounded-xl w-52 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
-                {/* {post.likes.length} */}
-                <FaThumbsUp size={25} /> &nbsp;
-                Likes : {likes}
+                <FaThumbsUp size={25} /> &nbsp; Likes : {likes}
               </div>
             </button>
             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#a02e2e] border-2 rounded-xl w-52 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
-                {/* {post.likes.length} */}
-                <FaThumbsDown size={25} /> &nbsp;
-                Dislikes : {dislikes} 
+                <FaThumbsDown size={25} /> &nbsp; Dislikes : {dislikes}
               </div>
-            </button>
-            
+            </button> */}
+            <div className="lg:w-[40%] lg:ml-[30%] items-center">
+              <Doughnut data={data} />
+            </div>
             <br />
             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4 ml-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
-                <FaCity size={25} /> &nbsp;
-                City : {city} 
+                <FaCity size={25} /> &nbsp; City : {city}
               </div>
             </button>
             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
-                <FaCity size={25} /> &nbsp;
-                State : {state}
+                <FaCity size={25} /> &nbsp; State : {state}
               </div>
             </button>
-             <br />
-             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4 ml-4 hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
+            <br />
+            <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4 ml-4 hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
-                <FaFlag size={25} /> &nbsp;
-                Country_code : {country}
+                <FaFlag size={25} /> &nbsp; Country_code : {country}
               </div>
             </button>
-             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
+            <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4 mr-4  hover:border-[#2e49a0] border-2 rounded-xl w-64 h-14 my-4">
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {/* {post.likes.length} */}
-                <MdCategory size={25} /> &nbsp;
-                Category : {category}
+                <MdCategory size={25} /> &nbsp; Category : {category}
               </div>
             </button>
-             <br />
-             <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4  hover:border-[#2e49a0] border-2 rounded-xl w-96 h-24 my-4">
-              <div className="text-sm" style={{ display: "flex", justifyContent: "center" }}>
+            <br />
+            <button className=" shadow-none text-[#d7dfe7] bg-transparent font-bold py-2 px-4  hover:border-[#2e49a0] border-2 rounded-xl w-96 h-24 my-4">
+              <div
+                className="text-sm"
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 {/* {post.likes.length} */}
-                <MdTimer size={25} /> &nbsp;
-                Created on : {created} <br />&nbsp; Last Updated on : {updated}
+                <MdTimer size={25} /> &nbsp; Created on : {created} <br />
+                &nbsp; Last Updated on : {updated}
               </div>
             </button>
-            
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
