@@ -17,6 +17,8 @@ import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
 import { TbConfetti } from "react-icons/tb";
 import { BiCurrentLocation, BiBold, BiItalic, BiStrikethrough } from "react-icons/bi";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
