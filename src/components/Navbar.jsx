@@ -8,6 +8,7 @@ import { BiHome } from "react-icons/bi";
 import { AuthContext } from "../context/UserContext";
 import Logo from "../assets/lOGO.gif";
 import { useNavigate } from "react-router";
+import Switcher from "./Switcher";
 const Navbar = () => {
   let token = localStorage.getItem("token");
   const { userAuth, setUserAuth } = useContext(AuthContext);
@@ -22,7 +23,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed w-full h-16 bg-[#161b22] text-white tracking-wide mb-0  z-50">
+    <div className="fixed w-full h-16 bg-[#161b22] dark:bg-slate-400 text-white tracking-wide mb-0  z-50">
       <div className="flex justify-between items-center w-full h-full px-7 2xl:px-16">
         <div
           className="flex flex-row cursor-pointer"
@@ -69,6 +70,10 @@ const Navbar = () => {
                 Logout
               </li>
             </a>
+           
+              <li className="font-semibold ml-10 text-md cursor-pointer">
+                <Switcher/>
+              </li>
           </ul>
           <div onClick={handleNav} className="md:hidden">
             <AiOutlineMenu size={25} />
