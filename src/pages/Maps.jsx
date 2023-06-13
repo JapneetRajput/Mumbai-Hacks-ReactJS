@@ -16,6 +16,8 @@ import TextBox from "../components/TextBox";
 import TextArea from "../components/TextArea";
 import Footer from "../components/Footer";
 import { TbConfetti } from "react-icons/tb";
+import { getPost } from "../api/service";
+import { useParams } from "react-router-dom";
 
 import Axios from "axios";
 // import { MapPinIcon } from "@heroicons/outline";
@@ -31,6 +33,23 @@ const markerIcon = new L.Icon({
   popupAnchor: [0, -46], //[left/right, top/bottom]
 });
 
+var LeafIcon = L.Icon.extend({
+  options: {
+      iconSize:     [40, 45],
+      iconAnchor: [17, 46], //[left/right, top/bottom]
+  popupAnchor: [0, -46], //[left/right, top/bottom]
+  }
+});
+
+var defaultIcon = new LeafIcon({iconUrl: '../assets/markerIcon.png'}),
+    TechIcon = new LeafIcon({iconUrl: '../assets/TechMapPin.png'}),
+    SportIcon = new LeafIcon({iconUrl: '../assets/SPortMapPinpng'});
+
+
+    L.icon = function (options) {
+      return new L.Icon(options);
+  };
+
 const Maps = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -44,8 +63,24 @@ const Maps = () => {
       }
     });
   };
+  const { id } = useParams();
+
+  const postInit = (id) => {
+    getPost(id).then((req, res) => {
+      setCategory(req.data.category);
+    });
+    if(category == "Tech"){
+      LeafIcon = TechIcon;
+    }
+  };
+
+  useEffect(() => {
+    postInit(id);
+  }, []);
 
   const [posts, setPosts] = useState();
+  const [category, setCategory] = useState("");
+  // L.marker("Tech", {icon: TechIcon});
 
   useEffect(() => {
     Axios.get(process.env.REACT_APP_API_BASE_URL + "/api/posts/", {
@@ -56,9 +91,19 @@ const Maps = () => {
       .then((res) => {
         console.log(res.data);
         setPosts(res.data);
+        setCategory(res.category);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  // function TechIcon(){
+  //   {posts &&
+  //     posts.map((post, idx) => (
+  //       if(posts.category == "Tech"){
+  //         markerIcon = techIcon;
+  //       } else if(posts.category == "Tech")
+  //   ))}
+  // }
 
   const [center, setCenter] = useState({
     lat: 21.567545592626146,
@@ -76,13 +121,16 @@ const Maps = () => {
       <div className="h-full pt-24 bg-[#010409]">
         <div className="w-full text-center">
           <div className="flex flex-col items-center">
+           
             <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
               <TileLayer
                 url={mapConfig.maptiler.url}
                 attribution={mapConfig.maptiler.attribution}
               />
+              
               {posts &&
                 posts.map((post, idx) => (
+                  
                   <Marker
                     position={[post.lat, post.lng]}
                     icon={markerIcon}
@@ -90,8 +138,7 @@ const Maps = () => {
                   >
                     <Popup>
                       <button className="shadow-none w-full  text-[#d7dfe7] bg-[#1f7e30] font-bold hover:bg-[#2ea043] rounded-md  h-full " onClick={() =>
-              navigate("/posts/" + post._id)
-            }>
+              navigate("/posts/" + post._id)}>
                         <div
                           style={{ display: "flex", justifyContent: "center" }}
                         >
@@ -100,6 +147,8 @@ const Maps = () => {
                       </button>
                       <br />
                       {post.city}, {post.country}
+                      <br/>
+                      {post.category}
                     </Popup>
                   </Marker>
                 ))}
