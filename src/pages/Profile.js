@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import {FaStar} from "react-icons/fa";
 import {BiLogOut} from "react-icons/bi";
 import {MdEmail} from "react-icons/md";
+import logo from "../assets/lOGO.gif"
 const Profile = () => {
   let token = localStorage.getItem("token");
   const [name, setName] = useState("");
@@ -42,7 +43,7 @@ const Profile = () => {
     <div class="flex justify-start px-5 -mt-12 mb-5">
       <span clspanss="block relative h-32 w-32">
         <img alt="Profile"
-          src="https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdpdGh1YnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          src={logo}
           class="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1" />
       </span>
     </div>
